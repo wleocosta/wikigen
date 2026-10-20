@@ -164,3 +164,25 @@ nav a[aria-current="page"] { color: var(--color-text); font-weight: bold; }
 sup a { text-decoration: none; }
 .references { font-size: 0.9rem; }
 .references li:target { background: #eaf3ff; }   /* highlights the reference you jumped to */
+
+/* Data tables and inline code */
+.table-wrap { overflow-x: auto; }              /* wide tables scroll inside this box */
+.wikitable {
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 0.95rem;
+}
+.wikitable caption { padding-bottom: 0.3rem; font-weight: bold; text-align: left; }
+.wikitable th,
+.wikitable td {
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--color-border);
+  text-align: left;
+}
+.wikitable th { background: #eaecf0; }
+
+code {
+  padding: 0.1rem 0.3rem;
+  background: var(--color-bg-soft);
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+}
