@@ -153,3 +153,14 @@ a.new:visited { color: #ba0000; }
 
 /* Current page in the main navigation */
 nav a[aria-current="page"] { color: var(--color-text); font-weight: bold; }
+
+/* Article components: hatnote, citations, references */
+.hatnote {
+  margin: 0 0 1rem;
+  padding-left: 1.5rem;
+  font-size: 0.9rem;
+  font-style: italic;
+}
+sup a { text-decoration: none; }
+.references { font-size: 0.9rem; }
+.references li:target { background: #eaf3ff; }   /* highlights the reference you jumped to */
