@@ -186,3 +186,12 @@ code {
   background: var(--color-bg-soft);
   font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
 }
+
+/* Numbers, formulas and notes */
+.wikitable th.num,
+.wikitable td.num {
+  text-align: right;
+  font-variant-numeric: tabular-nums;   /* digits align in columns */
+}
+.formula { margin: 1rem 0; text-align: center; font-size: 1.1rem; }
+.note { font-size: 0.9rem; color: #54595d; }
