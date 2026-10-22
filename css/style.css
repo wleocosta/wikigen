@@ -195,3 +195,40 @@ code {
 }
 .formula { margin: 1rem 0; text-align: center; font-size: 1.1rem; }
 .note { font-size: 0.9rem; color: #54595d; }
+
+/* Chess diagrams (drawn by js/board.js) */
+.chess-board {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  width: min(100%, 20rem);
+  aspect-ratio: 1;
+  margin: 1rem 0 0.5rem;
+  border: 2px solid var(--color-border);
+}
+.chess-board .sq {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Segoe UI Symbol", "DejaVu Sans", "Noto Sans Symbols 2", sans-serif;
+  font-size: clamp(1.4rem, 7vw, 2.2rem);
+  line-height: 1;
+}
+.chess-board .light { background: #f0d9b5; }
+.chess-board .dark  { background: #b58863; }
+.chess-board .w { color: #fff; text-shadow: 0 0 2px #000, 0 0 2px #000, 0 0 1px #000; }
+.chess-board .b { color: #000; }
+.chess-board .sq[data-rank]::before,
+.chess-board .sq[data-file]::after {
+  position: absolute;
+  font-family: var(--font-body);
+  font-size: 0.6rem;
+  color: #54595d;
+}
+.chess-board .sq[data-rank]::before { content: attr(data-rank); top: 1px; left: 2px; }
+.chess-board .sq[data-file]::after  { content: attr(data-file); bottom: 1px; right: 2px; }
+
+figure { margin: 1rem 0; }
+figcaption { font-size: 0.9rem; color: #54595d; }
+details { margin: 0.5rem 0 1.5rem; }
+summary { cursor: pointer; font-weight: bold; }
