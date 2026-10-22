@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chess strategy</title>
+  <meta name="description" content="Encyclopedic overview of chess strategy: pawn structure, piece activity and king safety, with diagrams of passed pawns, isolated pawns and open files.">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body data-root="../">
+
+  <header id="site-header"><noscript><a href="../index.html">Main Page</a></noscript></header>
+
+  <main>
+    <h1>Chess strategy</h1>
+    <p class="hatnote">This article is part of the <a href="index.html">Chess</a> category.</p>
+
+    <table class="infobox">
+      <caption>Chess strategy</caption>
+      <tr><th scope="row">Time horizon</th><td>Long term (the whole game)</td></tr>
+      <tr><th scope="row">Main factors</th><td>Pawn structure, piece activity, king safety, space</td></tr>
+      <tr><th scope="row">Main goal</th><td>Create lasting advantages</td></tr>
+      <tr><th scope="row">Related</th><td><a href="tactics.html">Tactics</a>, <a href="openings.html">openings</a></td></tr>
+    </table>
+
+    <p>
+      <strong>Chess strategy</strong> is the long-term planning of a game,
+      based on features of the position that change slowly, such as the pawn
+      structure, the activity of the pieces and the safety of the
+      kings.<sup><a href="#ref1">[1]</a></sup> It contrasts with
+      <a href="tactics.html">tactics</a>, which are short forcing sequences,
+      and it takes over once the <a href="openings.html">opening</a> has
+      developed the pieces.
+    </p>
+
+    <nav class="toc" aria-labelledby="toc-title">
+      <h2 id="toc-title">Contents</h2>
+      <ol>
+        <li><a href="#factors">Strategic factors</a></li>
+        <li><a href="#pawns">Pawn structure</a></li>
+        <li><a href="#passed">Passed pawn</a></li>
+        <li><a href="#isolated">Isolated pawn</a></li>
+        <li><a href="#files">Open files</a></li>
+        <li><a href="#planning">Planning approach</a></li>
+        <li><a href="#see-also">See also</a></li>
+        <li><a href="#references">References</a></li>
+      </ol>
+    </nav>
+
+    <h2 id="factors">Strategic factors</h2>
+    <p>
+      A weakness is a feature of a position, such as an undefended pawn or a
+      weak square, that the opponent can target. Strategy consists largely of
+      creating such weaknesses in the opponent's position and avoiding them in
+      one's own.
+    </p>
+    <div class="table-wrap">
+      <table class="wikitable">
+        <caption>Main strategic factors</caption>
+        <thead>
+          <tr><th scope="col">Factor</th><th scope="col">Question to ask</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Material</td><td>Who has more or better pieces?</td></tr>
+          <tr><td>King safety</td><td>Which king is more exposed to attack?</td></tr>
+          <tr><td>Piece activity</td><td>Which pieces control more squares and open lines?</td></tr>
+          <tr><td>Pawn structure</td><td>Which pawns are strong, weak or free to advance?</td></tr>
+          <tr><td>Space</td><td>Who controls more of the board, especially the centre?</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="pawns">Pawn structure</h2>
+    <p>
+      Pawns cannot move backwards, so their placement defines the character of
+      the position for many moves.<sup><a href="#ref2">[2]</a></sup> Common
+      terms are:
+    </p>
+    <ul>
+      <li><strong>Passed pawn</strong>: a pawn with no enemy pawns in front of it on its own file or on the adjacent files.</li>
+      <li><strong>Isolated pawn</strong>: a pawn with no friendly pawns on the adjacent files.</li>
+      <li><strong>Doubled pawns</strong>: two pawns of the same colour on the same file.</li>
+      <li><strong>Backward pawn</strong>: a pawn that is behind the neighbouring pawns and cannot safely advance.</li>
+    </ul>
+
+    <h2 id="passed">Passed pawn</h2>
+    <p>
+      A passed pawn cannot be stopped by enemy pawns, so it can become a
+      decisive advantage, especially in the endgame.<sup><a href="#ref3">[3]</a></sup>
+      Its strength increases when other pieces or pawns support it.
+    </p>
+    <figure>
+      <div class="chess-board" data-fen="4k3/pp3ppp/8/3P4/8/2P5/PP3PPP/4K3 w - - 0 1"
+           data-label="Passed pawn: White pawn on d5, supported by a pawn on c3, with no Black pawns on the c, d or e files">
+        <noscript>The diagram needs JavaScript. See the description below.</noscript>
+      </div>
+      <figcaption>
+        White to move. White: king e1, pawns a2, b2, c3, d5, f2, g2, h2.
+        Black: king e8, pawns a7, b7, f7, g7, h7.
+        FEN: <code>4k3/pp3ppp/8/3P4/8/2P5/PP3PPP/4K3 w - - 0 1</code>
+      </figcaption>
+    </figure>
+    <details>
+      <summary>Show the explanation</summary>
+      <p>
+        Black has no pawns on the c, d or e files, so no Black pawn can stop
+        the pawn on d5 from advancing. The pawn on c3 supports the advance
+        from behind. Black must use pieces, and eventually the king, to
+        block it.
+      </p>
+    </details>
+
+    <h2 id="isolated">Isolated pawn</h2>
+    <p>
+      An isolated pawn has no friendly pawns on the adjacent files, so no pawn
+      can defend it.<sup><a href="#ref4">[4]</a></sup> Pieces must protect it
+      instead, which can limit their freedom. In return, the pawn often gives
+      its owner more space and open lines for attack.
+    </p>
+    <figure>
+      <div class="chess-board" data-fen="4k3/pp3ppp/2p1p3/8/3P4/8/PP3PPP/4K3 w - - 0 1"
+           data-label="Isolated pawn: White pawn on d4 with no White pawns on the c or e files; Black pawns on c6 and e6">
+        <noscript>The diagram needs JavaScript. See the description below.</noscript>
+      </div>
+      <figcaption>
+        White to move. White: king e1, pawns a2, b2, d4, f2, g2, h2.
+        Black: king e8, pawns a7, b7, c6, e6, f7, g7, h7.
+        FEN: <code>4k3/pp3ppp/2p1p3/8/3P4/8/PP3PPP/4K3 w - - 0 1</code>
+      </figcaption>
+    </figure>
+    <details>
+      <summary>Show the explanation</summary>
+      <p>
+        White has no pawns on the c or e files, so the pawn on d4 cannot be
+        defended by another pawn. Black's pawns on c6 and e6 also control the
+        square in front of it, d5. This pawn is isolated, but it is not
+        passed, because the Black pawns on c6 and e6 can still stop it.
+      </p>
+    </details>
+
+    <h2 id="files">Open files</h2>
+    <p>
+      An open file is a file with no pawns of either side.<sup><a href="#ref5">[5]</a></sup>
+      Rooks are most effective there. A rook on an open file can invade the
+      opponent's position, for example by reaching the seventh rank, where it
+      attacks pawns from the side.
+    </p>
+    <figure>
+      <div class="chess-board" data-fen="r5k1/pppp1ppp/8/8/8/8/PPPP1PPP/4R1K1 w - - 0 1"
+           data-label="Open file: no pawns on the e file; White rook on e1, Black rook on a8">
+        <noscript>The diagram needs JavaScript. See the description below.</noscript>
+      </div>
+      <figcaption>
+        White to move. White: king g1, rook e1, pawns a2, b2, c2, d2, f2, g2, h2.
+        Black: king g8, rook a8, pawns a7, b7, c7, d7, f7, g7, h7.
+        FEN: <code>r5k1/pppp1ppp/8/8/8/8/PPPP1PPP/4R1K1 w - - 0 1</code>
+      </figcaption>
+    </figure>
+    <details>
+      <summary>Show the explanation</summary>
+      <p>
+        Neither side has a pawn on the e file, so it is open, and the White
+        rook already controls it. A move such as <code>1. Re7</code> brings the
+        rook to the seventh rank, where it attacks the pawns on d7 and f7. The
+        rook is safe there, because no Black piece or pawn attacks e7.
+      </p>
+    </details>
+
+    <h2 id="planning">Planning approach</h2>
+    <p>
+      Before choosing a plan, evaluate the position by comparing material,
+      king safety, piece activity and pawn structure. Then pick one realistic
+      goal, such as attacking a weakness or improving the worst-placed piece,
+      and check that the plan does not allow a tactical shot.
+      Studying annotated games shows how strong players connect these factors.
+    </p>
+
+    <h2 id="see-also">See also</h2>
+    <ul>
+      <li><a href="index.html">Chess</a>: category overview.</li>
+      <li><a href="tactics.html">Chess tactics</a>: short forcing sequences that often decide strategic battles.</li>
+      <li><a href="openings.html">Chess openings</a>: the phase that prepares the middlegame plan.</li>
+      <li><a href="../finance/index.html">Finance</a>: long-term planning under uncertainty, in another field.</li>
+    </ul>
+
+    <h2 id="references">References</h2>
+    <ol class="references">
+      <li id="ref1"><a href="https://en.wikipedia.org/wiki/Chess_strategy" rel="noopener">Chess strategy</a>. Wikipedia.</li>
+      <li id="ref2"><a href="https://en.wikipedia.org/wiki/Pawn_structure" rel="noopener">Pawn structure</a>. Wikipedia.</li>
+      <li id="ref3"><a href="https://en.wikipedia.org/wiki/Passed_pawn" rel="noopener">Passed pawn</a>. Wikipedia.</li>
+      <li id="ref4"><a href="https://en.wikipedia.org/wiki/Isolated_pawn" rel="noopener">Isolated pawn</a>. Wikipedia.</li>
+      <li id="ref5"><a href="https://en.wikipedia.org/wiki/Glossary_of_chess" rel="noopener">Glossary of chess</a>. Wikipedia. See "open file".</li>
+    </ol>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="../../js/layout.js" defer></script>
+  <script src="../../js/board.js" defer></script>
+</body>
+</html>
