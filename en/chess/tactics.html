@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chess tactics</title>
+  <meta name="description" content="Encyclopedic overview of chess tactics: forks, pins and skewers, with diagrams and a practical approach to training.">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body data-root="../">
+
+  <header id="site-header"><noscript><a href="../index.html">Main Page</a></noscript></header>
+
+  <main>
+    <h1>Chess tactics</h1>
+    <p class="hatnote">This article is part of the <a href="index.html">Chess</a> category.</p>
+
+    <table class="infobox">
+      <caption>Chess tactics</caption>
+      <tr><th scope="row">Time horizon</th><td>Short term (a few moves)</td></tr>
+      <tr><th scope="row">Main goals</th><td>Win material, deliver checkmate</td></tr>
+      <tr><th scope="row">Common motifs</th><td>Fork, pin, skewer</td></tr>
+      <tr><th scope="row">Related</th><td><a href="openings.html">Openings</a>, <a href="strategy.html" class="new">strategy</a></td></tr>
+    </table>
+
+    <p>
+      A <strong>chess tactic</strong> is a short sequence of forcing moves that
+      creates a concrete advantage, such as winning material or delivering
+      checkmate.<sup><a href="#ref1">[1]</a></sup> A forcing move, such as a
+      check or a capture, limits the opponent's replies. Tactics contrast with
+      <a href="strategy.html" class="new">strategy</a>, which concerns
+      long-term planning, and they usually arise after the
+      <a href="openings.html">opening</a>.
+    </p>
+
+    <nav class="toc" aria-labelledby="toc-title">
+      <h2 id="toc-title">Contents</h2>
+      <ol>
+        <li><a href="#motifs">Common motifs</a></li>
+        <li><a href="#fork">Fork</a></li>
+        <li><a href="#pin">Pin</a></li>
+        <li><a href="#skewer">Skewer</a></li>
+        <li><a href="#training">Training approach</a></li>
+        <li><a href="#see-also">See also</a></li>
+        <li><a href="#references">References</a></li>
+      </ol>
+    </nav>
+
+    <h2 id="motifs">Common motifs</h2>
+    <div class="table-wrap">
+      <table class="wikitable">
+        <caption>Basic tactical motifs</caption>
+        <thead>
+          <tr><th scope="col">Motif</th><th scope="col">Idea</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Fork</td><td>One piece attacks two or more enemy pieces at once</td></tr>
+          <tr><td>Pin</td><td>A piece cannot move without exposing a more valuable piece behind it</td></tr>
+          <tr><td>Skewer</td><td>A valuable piece is attacked and must move, exposing a piece behind it</td></tr>
+          <tr><td>Discovered attack</td><td>Moving one piece opens a line for another piece to attack</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      The diagrams below use pieces in standard
+      <a href="openings.html#notation">algebraic notation</a>. Each position is
+      also stored as a FEN string, a compact text description of the
+      board.<sup><a href="#ref5">[5]</a></sup>
+    </p>
+
+    <h2 id="fork">Fork</h2>
+    <p>
+      A fork is a single move that attacks two or more enemy pieces at the same
+      time.<sup><a href="#ref2">[2]</a></sup> Knights are especially effective
+      because their move pattern is difficult to anticipate.
+    </p>
+    <figure>
+      <div class="chess-board" data-fen="r3k3/8/8/3N4/8/8/8/4K3 w - - 0 1"
+           data-label="Fork position: White knight on d5, White king on e1, Black king on e8, Black rook on a8">
+        <noscript>The diagram needs JavaScript. See the description below.</noscript>
+      </div>
+      <figcaption>
+        White to move. White: king e1, knight d5. Black: king e8, rook a8.
+        FEN: <code>r3k3/8/8/3N4/8/8/8/4K3 w - - 0 1</code>
+      </figcaption>
+    </figure>
+    <details>
+      <summary>Show the solution</summary>
+      <p>
+        <code>1. Nc7+</code> attacks the king on e8 and the rook on a8 at the
+        same time. The king must move, and White then captures the rook with
+        <code>2. Nxa8</code>. White wins a rook.
+      </p>
+    </details>
+
+    <h2 id="pin">Pin</h2>
+    <p>
+      A pin attacks a piece that cannot move without exposing a more valuable
+      piece behind it.<sup><a href="#ref3">[3]</a></sup> When the piece behind
+      is the king, the pin is absolute: moving the pinned piece would be illegal.
+    </p>
+    <figure>
+      <div class="chess-board" data-fen="4k3/8/8/8/1b6/8/3N4/4K3 w - - 0 1"
+           data-label="Pin position: Black bishop on b4 pins the White knight on d2 to the White king on e1">
+        <noscript>The diagram needs JavaScript. See the description below.</noscript>
+      </div>
+      <figcaption>
+        White to move. White: king e1, knight d2. Black: king e8, bishop b4.
+        FEN: <code>4k3/8/8/8/1b6/8/3N4/4K3 w - - 0 1</code>
+      </figcaption>
+    </figure>
+    <details>
+      <summary>Show the explanation</summary>
+      <p>
+        The bishop on b4 attacks along the diagonal to the king on e1, and the
+        knight on d2 stands in between. The knight cannot make any legal move,
+        because moving it would leave the king in check.
+      </p>
+    </details>
+
+    <h2 id="skewer">Skewer</h2>
+    <p>
+      A skewer is the reverse of a pin: the more valuable piece must move, and
+      the piece behind it is then captured.<sup><a href="#ref4">[4]</a></sup>
+    </p>
+    <figure>
+      <div class="chess-board" data-fen="4q3/8/8/4k3/8/8/8/K6R w - - 0 1"
+           data-label="Skewer position: White rook on h1, White king on a1, Black king on e5, Black queen on e8">
+        <noscript>The diagram needs JavaScript. See the description below.</noscript>
+      </div>
+      <figcaption>
+        White to move. White: king a1, rook h1. Black: king e5, queen e8.
+        FEN: <code>4q3/8/8/4k3/8/8/8/K6R w - - 0 1</code>
+      </figcaption>
+    </figure>
+    <details>
+      <summary>Show the solution</summary>
+      <p>
+        <code>1. Re1+</code> gives check along the e-file. The king must leave
+        the file, and the queen on e8, which stood behind it, is then
+        captured with <code>2. Rxe8</code>.
+      </p>
+    </details>
+
+    <h2 id="training">Training approach</h2>
+    <p>
+      Tactical skill comes from pattern recognition, so short daily sessions of
+      puzzles work better than occasional long ones. Before each move, check the
+      forcing options in order: checks, captures and direct threats. Solving a
+      puzzle completely in the mind before moving any piece builds the
+      calculation habit that games demand.
+    </p>
+
+    <h2 id="see-also">See also</h2>
+    <ul>
+      <li><a href="index.html">Chess</a>: category overview.</li>
+      <li><a href="openings.html">Chess openings</a>: the phase that prepares tactical chances.</li>
+      <li><a href="strategy.html" class="new">Strategy</a>: long-term planning.</li>
+    </ul>
+
+    <h2 id="references">References</h2>
+    <ol class="references">
+      <li id="ref1"><a href="https://en.wikipedia.org/wiki/Chess_tactic" rel="noopener">Chess tactic</a>. Wikipedia.</li>
+      <li id="ref2"><a href="https://en.wikipedia.org/wiki/Fork_(chess)" rel="noopener">Fork (chess)</a>. Wikipedia.</li>
+      <li id="ref3"><a href="https://en.wikipedia.org/wiki/Pin_(chess)" rel="noopener">Pin (chess)</a>. Wikipedia.</li>
+      <li id="ref4"><a href="https://en.wikipedia.org/wiki/Skewer_(chess)" rel="noopener">Skewer (chess)</a>. Wikipedia.</li>
+      <li id="ref5"><a href="https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation" rel="noopener">Forsyth–Edwards Notation</a>. Wikipedia.</li>
+    </ol>
+  </main>
+
+  <footer id="site-footer"></footer>
+
+  <script src="../../js/layout.js" defer></script>
+  <script src="../../js/board.js" defer></script>
+</body>
+</html>
