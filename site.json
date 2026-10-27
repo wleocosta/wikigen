@@ -1,0 +1,13 @@
+{
+  "languages": ["en", "pt"],
+  "menu": [
+    ["home", "index.html"],
+    ["music", "music/index.html"],
+    ["chess", "chess/index.html"],
+    ["sports", "sports/index.html"],
+    ["technology", "technology/index.html"],
+    ["finance", "finance/index.html"],
+    ["accounting", "accounting/index.html"],
+    ["languages", "languages/index.html"]
+  ]
+}

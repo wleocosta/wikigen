@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="${html_lang}" dir="${dir}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${title}</title>
+  <meta name="description" content="${description}">
+${alternates}
+  <link rel="stylesheet" href="${css_path}">
+</head>
+<body>
+
+  <header id="site-header"><a href="${home}" class="site-title">${site_title}</a><nav aria-label="${nav_label}"><ul>${nav}</ul></nav>${switcher}</header>
+
+  <main>
+${content}
+  </main>
+
+  <footer id="site-footer"><p>${footer}</p></footer>
+${scripts}
+</body>
+</html>
