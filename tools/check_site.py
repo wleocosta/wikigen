@@ -22,8 +22,8 @@ from urllib.parse import unquote, urlparse
 LANGS = {"en": "en", "pt": "pt-BR"}
 SOURCE = "en"  # canonical language; category hubs are defined by its folders
 # Language folder -> tree that its header links point to (see data-root in
-# js/layout.js). Change "pt" to "pt" once Portuguese has its own hubs.
-LAYOUT_TREE = {"en": "en", "pt": "en"}
+# js/layout.js). Both languages now have their own hubs.
+LAYOUT_TREE = {"en": "en", "pt": "pt"}
 MAX_DESCRIPTION = 160
 
 

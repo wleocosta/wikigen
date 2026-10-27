@@ -1,7 +1,7 @@
 /* Shared layout: renders the header, language switcher and footer on every page.
-   Each page declares its depth with <body data-root="../"> (empty for en/index.html).
-   Pages in pt/ use data-root="../en/" because their category links still point to
-   the English tree. The interface language comes from <html lang>. */
+   Each page declares the path to the root of its own language folder with
+   <body data-root="">: empty for en/index.html and pt/index.html, "../" for pages
+   one folder deep. The interface language comes from <html lang>. */
 (function () {
   "use strict";
 
@@ -43,16 +43,10 @@
   // Normalise the current path so "/en/music/" and "/en/music/index.html" match
   var current = location.pathname.replace(/\/$/, "/index.html");
 
-  // The Main Page entry stays in the current language; the other categories
-  // are still English-only, so they link to the English tree through data-root.
-  var homeHref = root.replace(/en\/$/, ui.folder + "/") + "index.html";
-  var homeUrl = new URL(homeHref, location.href).pathname;
-
   var items = pages.map(function (href, i) {
-    var url = i === 0 ? homeUrl : new URL(root + href, location.href).pathname;
-    var target = i === 0 ? homeHref : root + href;
+    var url = new URL(root + href, location.href).pathname;
     var active = url === current ? ' aria-current="page"' : "";
-    return '<li><a href="' + target + '"' + active + ">" + ui.nav[i] + "</a></li>";
+    return '<li><a href="' + root + href + '"' + active + ">" + ui.nav[i] + "</a></li>";
   }).join("");
 
   // Language switcher, derived from <link rel="alternate" hreflang="...">
@@ -83,7 +77,7 @@
   var header = document.getElementById("site-header");
   if (header) {
     header.innerHTML =
-      '<a href="' + homeHref + '" class="site-title">My Wiki</a>' +
+      '<a href="' + root + 'index.html" class="site-title">My Wiki</a>' +
       '<nav aria-label="' + ui.navLabel + '"><ul>' + items + "</ul></nav>" +
       switcher;
   }
