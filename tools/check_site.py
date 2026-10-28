@@ -13,6 +13,7 @@ Checks every page under the language folders (en/, pt/) for:
   - a Main Page that does not link to every category hub
 It also lists external links, which must be verified by hand.
 """
+import os
 import pathlib
 import sys
 from html.parser import HTMLParser
@@ -79,6 +80,8 @@ class PageParser(HTMLParser):
 
 
 def main():
+    if "--root" in sys.argv:           # check another folder, e.g. build/
+        os.chdir(sys.argv[sys.argv.index("--root") + 1])    
     pages = sorted(
         page
         for lang in LANGS
@@ -124,7 +127,8 @@ def main():
         depth = len(rel.parts) - 1
         tree = LAYOUT_TREE[lang]
         expected = "../" * depth + ("" if tree == lang else f"../{tree}/")
-        if (p.data_root or "") != expected:
+        uses_layout = any(ref.endswith("layout.js") for ref in p.assets)
+        if uses_layout and (p.data_root or "") != expected:
             flag(page, f'data-root is "{p.data_root}", expected "{expected}"')
 
         # CSS and JavaScript files
