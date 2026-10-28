@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
-"""Minimal site generator. Run from the repository root:  python tools/build.py
+"""Minimal site generator. Run from the repository root:
 
-Reads site.json, i18n/<code>.json, templates/page.html and content/<code>/**/*.html
-and writes the finished pages to build/ (a temporary folder, ignored by Git).
+    python tools/build.py             write the pages into build/ (temporary, ignored by Git)
+    python tools/build.py --publish   write the pages into en/, pt/, ... in the repository root
+
+Reads site.json, i18n/<code>.json, templates/page.html and content/<code>/**/*.html.
 
 A content file has a small header (front matter), a line with three dashes, and
 the HTML that goes inside <main>:
@@ -16,6 +18,7 @@ the HTML that goes inside <main>:
 """
 import json
 import shutil
+import sys
 from pathlib import Path
 from string import Template
 
@@ -104,7 +107,33 @@ def render_scripts(meta, depth):
     return "".join(f'  <script src="{prefix}{s}" defer></script>\n' for s in sources)
 
 
-def build():
+def prepare_output(publish, languages, pages):
+    """Return the output folder, cleaned and ready for the generated pages."""
+    if not publish:
+        if OUT.exists():
+            shutil.rmtree(OUT)
+        for asset in ("css", "js"):
+            if (ROOT / asset).is_dir():
+                shutil.copytree(ROOT / asset, OUT / asset)
+        return OUT
+
+    # Publish mode: refuse to delete anything the generator does not create
+    unknown = []
+    for code in languages:
+        folder = ROOT / code
+        if folder.is_dir():
+            unknown += [p for p in folder.rglob("*")
+                        if p.is_file() and (p.suffix != ".html" or p.relative_to(folder) not in pages[code])]
+    if unknown:
+        names = "\n  ".join(p.relative_to(ROOT).as_posix() for p in unknown)
+        raise SystemExit("Refusing to publish: these files have no content file:\n  " + names)
+    for code in languages:
+        if (ROOT / code).is_dir():
+            shutil.rmtree(ROOT / code)
+    return ROOT
+
+
+def build(publish=False):
     site = load_json(ROOT / "site.json")
     languages = site["languages"]
     uis = {code: load_json(ROOT / "i18n" / f"{code}.json") for code in languages}
@@ -115,11 +144,7 @@ def build():
         folder = CONTENT / code
         pages[code] = sorted(p.relative_to(folder) for p in folder.rglob("*.html")) if folder.is_dir() else []
 
-    if OUT.exists():
-        shutil.rmtree(OUT)
-    for asset in ("css", "js"):
-        if (ROOT / asset).is_dir():
-            shutil.copytree(ROOT / asset, OUT / asset)
+    out = prepare_output(publish, languages, pages)
 
     count = 0
     for lang in languages:
@@ -144,10 +169,10 @@ def build():
                 footer=ui["footer"],
                 scripts=render_scripts(meta, depth),
             )
-            write(OUT / lang / rel, html)
+            write(out / lang / rel, html)
             count += 1
-    print(f"Built {count} page(s) into {OUT.relative_to(ROOT).as_posix()}/")
+    print(f"Built {count} page(s) into {out.relative_to(ROOT).as_posix()}/")
 
 
 if __name__ == "__main__":
-    build()
+    build(publish="--publish" in sys.argv)
