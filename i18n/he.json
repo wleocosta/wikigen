@@ -1,0 +1,20 @@
+{
+  "lang_name": "עברית",
+  "html_lang": "he",
+  "dir": "rtl",
+  "site_title": "My Wiki",
+  "nav_label": "ניווט ראשי",
+  "lang_label": "שפה",
+  "footer": "התוכן מתוחזק על ידי המחבר. עדכון אחרון: אוקטובר 2026.",
+  "untranslated": "דף זה טרם תורגם.",
+  "menu": {
+    "home": "עמוד ראשי",
+    "music": "מוזיקה",
+    "chess": "שחמט",
+    "sports": "ספורט",
+    "technology": "טכנולוגיה",
+    "finance": "פיננסים",
+    "accounting": "חשבונאות",
+    "languages": "שפות"
+  }
+}
