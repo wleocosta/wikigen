@@ -1,0 +1,20 @@
+{
+  "lang_name": "Español",
+  "html_lang": "es",
+  "dir": "ltr",
+  "site_title": "My Wiki",
+  "nav_label": "Navegación principal",
+  "lang_label": "Idioma",
+  "footer": "El contenido es mantenido por el autor. Última actualización: octubre de 2026.",
+  "untranslated": "Esta página aún no ha sido traducida.",
+  "menu": {
+    "home": "Página principal",
+    "music": "Música",
+    "chess": "Ajedrez",
+    "sports": "Deportes",
+    "technology": "Tecnología",
+    "finance": "Finanzas",
+    "accounting": "Contabilidad",
+    "languages": "Idiomas"
+  }
+}
