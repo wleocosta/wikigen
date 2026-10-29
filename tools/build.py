@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """Minimal site generator. Run from the repository root:
 
-    python tools/build.py             write the pages into build/ (temporary, ignored by Git)
-    python tools/build.py --publish   write the pages into en/, pt/, ... in the repository root
+    python tools/build.py                       write the pages into build/ (ignored by Git)
+    python tools/build.py --publish             write the pages into en/, pt/, ... in the root
+    python tools/build.py add-lang es Español   register a new language
+    python tools/build.py status                show how many pages exist in each language
 
 Reads site.json, i18n/<code>.json, templates/page.html and content/<code>/**/*.html.
 
@@ -16,15 +18,17 @@ the HTML that goes inside <main>:
     <h1>Main Page</h1>
     ...
 """
+import argparse
 import json
+import re
 import shutil
-import sys
 from pathlib import Path
 from string import Template
 
 ROOT = Path(__file__).resolve().parent.parent
 CONTENT = ROOT / "content"
 OUT = ROOT / "build"
+RTL_LANGS = {"he", "ar", "fa", "ur"}   # right-to-left languages
 
 
 def load_json(path):
@@ -75,12 +79,21 @@ def render_alternates(site, uis, lang, rel, existing):
     return "\n".join(lines) + "\n"
 
 
-def render_menu(site, ui, rel):
-    prefix = "../" * (len(rel.parts) - 1)
+def render_menu(site, uis, lang, rel, pages):
+    """Menu links; a page missing in this language links to the default language's page."""
+    ui = uis[lang]
+    default = site["languages"][0]
+    depth = len(rel.parts) - 1
     items = []
     for key, href in site["menu"]:
+        target = Path(href)
+        if target in pages[lang]:
+            link, extra = "../" * depth + href, ""
+        else:
+            link = page_url(depth, default, target)
+            extra = f' hreflang="{uis[default]["html_lang"]}"'
         current = ' aria-current="page"' if rel.as_posix() == href else ""
-        items.append(f'<li><a href="{prefix}{href}"{current}>{ui["menu"][key]}</a></li>')
+        items.append(f'<li><a href="{link}"{extra}{current}>{ui["menu"][key]}</a></li>')
     return "".join(items)
 
 
@@ -163,7 +176,7 @@ def build(publish=False):
                 home="../" * depth + "index.html",
                 site_title=ui["site_title"],
                 nav_label=ui["nav_label"],
-                nav=render_menu(site, ui, rel),
+                nav=render_menu(site, uis, lang, rel, pages),
                 switcher=render_switcher(uis, lang, rel, existing),
                 content=body,
                 footer=ui["footer"],
@@ -174,5 +187,59 @@ def build(publish=False):
     print(f"Built {count} page(s) into {out.relative_to(ROOT).as_posix()}/")
 
 
+def add_lang(code, name):
+    """Register a new language: interface file, content folder and site.json entry."""
+    site_path = ROOT / "site.json"
+    site = load_json(site_path)
+    if code in site["languages"]:
+        raise SystemExit(f"Language already registered: {code}")
+
+    # Start from the default language's interface file; its values are translated afterwards
+    default = site["languages"][0]
+    ui = load_json(ROOT / "i18n" / f"{default}.json")
+    ui["lang_name"] = name
+    ui["html_lang"] = code
+    ui["dir"] = "rtl" if code.split("-")[0] in RTL_LANGS else "ltr"
+    write(ROOT / "i18n" / f"{code}.json", json.dumps(ui, indent=2, ensure_ascii=False) + "\n")
+    (CONTENT / code).mkdir(parents=True, exist_ok=True)
+
+    # Change only the "languages" line, so the rest of site.json keeps its formatting
+    text = site_path.read_text(encoding="utf-8")
+    new_list = '"languages": ' + json.dumps(site["languages"] + [code])
+    text = re.sub(r'"languages":\s*\[[^\]]*\]', lambda m: new_list, text, count=1)
+    write(site_path, text)
+
+    print(f"Added '{code}' ({name}, {ui['dir']}).")
+    print(f"Next: translate the values in i18n/{code}.json, then add content/{code}/index.html")
+
+
+def status():
+    """Show how many pages exist in each language."""
+    site = load_json(ROOT / "site.json")
+    default_dir = CONTENT / site["languages"][0]
+    pages = sorted(p.relative_to(default_dir) for p in default_dir.rglob("*.html"))
+    for code in site["languages"]:
+        done = sum((CONTENT / code / p).exists() for p in pages)
+        print(f"{code:8} {done}/{len(pages)} pages")
+
+
+def main():
+    parser = argparse.ArgumentParser(description="Minimal static-site generator")
+    parser.add_argument("--publish", action="store_true",
+                        help="write the pages into en/, pt/, ... instead of build/")
+    sub = parser.add_subparsers(dest="command")
+    p = sub.add_parser("add-lang", help="register a new language")
+    p.add_argument("code", help="language code, also the folder name, e.g. es or zh-Hans")
+    p.add_argument("name", help="language name in its own language, e.g. Español")
+    sub.add_parser("status", help="show how many pages exist in each language")
+    args = parser.parse_args()
+    if args.command == "add-lang":
+        add_lang(args.code, args.name)
+    elif args.command == "status":
+        status()
+    else:
+        build(publish=args.publish)
+
+
 if __name__ == "__main__":
-    build(publish="--publish" in sys.argv)
+    main()
