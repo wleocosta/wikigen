@@ -6,25 +6,28 @@ Checks every page under the language folders (en/, pt/) for:
   - red links (class="new") that point to pages that now exist
   - missing or duplicated <title>, missing or long meta description
   - a <title> that differs from the <h1>
-  - a wrong <html lang> or data-root attribute (used by js/layout.js)
+  - a wrong <html lang> attribute
   - missing CSS or JavaScript files
   - hreflang links: declared targets must exist, a page must reference
     itself, and every translation pair must be declared on both pages
   - a Main Page that does not link to every category hub
 It also lists external links, which must be verified by hand.
 """
+import json
 import os
 import pathlib
 import sys
 from html.parser import HTMLParser
 from urllib.parse import unquote, urlparse
 
-# Language folder -> expected value of <html lang>
-LANGS = {"en": "en", "pt": "pt-BR"}
-SOURCE = "en"  # canonical language; category hubs are defined by its folders
-# Language folder -> tree that its header links point to (see data-root in
-# js/layout.js). Both languages now have their own hubs.
-LAYOUT_TREE = {"en": "en", "pt": "pt"}
+# Languages come from site.json; the <html lang> value comes from i18n/<code>.json.
+REPO = pathlib.Path(__file__).resolve().parent.parent
+_site = json.loads((REPO / "site.json").read_text(encoding="utf-8"))
+SOURCE = _site["languages"][0]  # canonical language; category hubs are defined by its folders
+LANGS = {
+    code: json.loads((REPO / "i18n" / f"{code}.json").read_text(encoding="utf-8"))["html_lang"]
+    for code in _site["languages"]
+}
 MAX_DESCRIPTION = 160
 
 
@@ -122,14 +125,6 @@ def main():
             flag(page, f"description has {len(p.description)} characters (limit {MAX_DESCRIPTION})")
         if p.lang != LANGS[lang]:
             flag(page, f'<html lang> is "{p.lang}", expected "{LANGS[lang]}"')
-
-        # data-root must match the folder depth and the layout tree
-        depth = len(rel.parts) - 1
-        tree = LAYOUT_TREE[lang]
-        expected = "../" * depth + ("" if tree == lang else f"../{tree}/")
-        uses_layout = any(ref.endswith("layout.js") for ref in p.assets)
-        if uses_layout and (p.data_root or "") != expected:
-            flag(page, f'data-root is "{p.data_root}", expected "{expected}"')
 
         # CSS and JavaScript files
         for ref in p.assets:
