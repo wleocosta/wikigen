@@ -1,0 +1,20 @@
+{
+  "lang_name": "Italiano",
+  "html_lang": "it",
+  "dir": "ltr",
+  "site_title": "My Wiki",
+  "nav_label": "Navigazione principale",
+  "lang_label": "Lingua",
+  "footer": "Il contenuto è curato dall'autore. Ultimo aggiornamento: ottobre 2026.",
+  "untranslated": "Questa pagina non è ancora stata tradotta.",
+  "menu": {
+    "home": "Pagina principale",
+    "music": "Musica",
+    "chess": "Scacchi",
+    "sports": "Sport",
+    "technology": "Tecnologia",
+    "finance": "Finanza",
+    "accounting": "Contabilità",
+    "languages": "Lingue"
+  }
+}
