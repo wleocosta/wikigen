@@ -1,5 +1,5 @@
 {
-  "languages": ["en", "pt", "es", "it", "fr", "de", "el", "he"],
+  "languages": ["en", "pt", "es", "it", "fr", "de", "el", "he", "ja", "ko", "zh-Hans", "ru"],
   "menu": [
     ["home", "index.html"],
     ["music", "music/index.html"],

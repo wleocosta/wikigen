@@ -1,0 +1,20 @@
+{
+  "lang_name": "日本語",
+  "html_lang": "ja",
+  "dir": "ltr",
+  "site_title": "My Wiki",
+  "nav_label": "メインナビゲーション",
+  "lang_label": "言語",
+  "footer": "コンテンツは著者が管理しています。最終更新：2026年10月",
+  "untranslated": "このページはまだ翻訳されていません。",
+  "menu": {
+    "home": "メインページ",
+    "music": "音楽",
+    "chess": "チェス",
+    "sports": "スポーツ",
+    "technology": "テクノロジー",
+    "finance": "金融",
+    "accounting": "会計",
+    "languages": "語学"
+  }
+}

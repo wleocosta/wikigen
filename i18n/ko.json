@@ -1,0 +1,20 @@
+{
+  "lang_name": "한국어",
+  "html_lang": "ko",
+  "dir": "ltr",
+  "site_title": "My Wiki",
+  "nav_label": "주요 탐색",
+  "lang_label": "언어",
+  "footer": "콘텐츠는 저자가 관리합니다. 마지막 업데이트: 2026년 10월",
+  "untranslated": "이 페이지는 아직 번역되지 않았습니다.",
+  "menu": {
+    "home": "대문",
+    "music": "음악",
+    "chess": "체스",
+    "sports": "스포츠",
+    "technology": "기술",
+    "finance": "금융",
+    "accounting": "회계",
+    "languages": "언어"
+  }
+}
