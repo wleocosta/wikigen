@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Шахматная тактика</title>
+  <meta name="description" content="Энциклопедический обзор шахматной тактики: вилки, связки и сквозные удары, с диаграммами и практическим подходом к тренировке.">
+  <link rel="alternate" hreflang="en" href="../../en/chess/tactics.html">
+  <link rel="alternate" hreflang="ru" href="tactics.html">
+  <link rel="alternate" hreflang="x-default" href="../../en/chess/tactics.html">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+  <header id="site-header"><a href="../index.html" class="site-title">My Wiki</a><nav aria-label="Основная навигация"><ul><li><a href="../index.html">Заглавная страница</a></li><li><a href="../music/index.html">Музыка</a></li><li><a href="../chess/index.html">Шахматы</a></li><li><a href="../sports/index.html">Спорт</a></li><li><a href="../technology/index.html">Технологии</a></li><li><a href="../finance/index.html">Финансы</a></li><li><a href="../accounting/index.html">Бухгалтерский учёт</a></li><li><a href="../languages/index.html">Языки</a></li></ul></nav><nav aria-label="Язык"><ul class="lang-switcher"><li><a href="../../en/chess/tactics.html" hreflang="en" lang="en">English</a></li><li><span aria-current="true" lang="ru">Русский</span></li></ul></nav></header>
+
+  <main>
+    <h1>Шахматная тактика</h1>
+    <p class="hatnote">Эта статья входит в категорию <a href="index.html">Шахматы</a>.</p>
+
+    <table class="infobox">
+      <caption>Шахматная тактика</caption>
+      <tr><th scope="row">Временной горизонт</th><td>Краткосрочный (несколько ходов)</td></tr>
+      <tr><th scope="row">Основные цели</th><td>Выигрыш материала, постановка мата</td></tr>
+      <tr><th scope="row">Типичные приёмы</th><td>Вилка, связка, сквозной удар</td></tr>
+      <tr><th scope="row">Связанные темы</th><td><a href="../../en/chess/openings.html" hreflang="en">Дебюты</a>, <a href="../../en/chess/strategy.html" hreflang="en">стратегия</a></td></tr>
+    </table>
+
+    <p>
+      <strong>Шахматная тактика</strong> — короткая последовательность
+      форсированных ходов, создающая конкретное преимущество, например выигрыш
+      материала или постановку мата.<sup><a href="#ref1">[1]</a></sup>
+      Форсированный ход, такой как шах или взятие, ограничивает ответы
+      соперника. Тактика противопоставляется
+      <a href="../../en/chess/strategy.html" hreflang="en">стратегии</a>, которая
+      касается долгосрочного планирования, и обычно возникает после
+      <a href="../../en/chess/openings.html" hreflang="en">дебюта</a>.
+    </p>
+
+    <nav class="toc" aria-labelledby="toc-title">
+      <h2 id="toc-title">Содержание</h2>
+      <ol>
+        <li><a href="#motifs">Типичные приёмы</a></li>
+        <li><a href="#fork">Вилка</a></li>
+        <li><a href="#pin">Связка</a></li>
+        <li><a href="#skewer">Сквозной удар</a></li>
+        <li><a href="#training">Подход к тренировке</a></li>
+        <li><a href="#see-also">См. также</a></li>
+        <li><a href="#references">Примечания</a></li>
+      </ol>
+    </nav>
+
+    <h2 id="motifs">Типичные приёмы</h2>
+    <div class="table-wrap">
+      <table class="wikitable">
+        <caption>Основные тактические приёмы</caption>
+        <thead>
+          <tr><th scope="col">Приём</th><th scope="col">Идея</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Вилка</td><td>Одна фигура одновременно атакует две или более фигур противника</td></tr>
+          <tr><td>Связка</td><td>Фигура не может сдвинуться, не открыв более ценную фигуру позади неё</td></tr>
+          <tr><td>Сквозной удар</td><td>Ценная фигура находится под ударом и должна уйти, открывая фигуру позади неё</td></tr>
+          <tr><td>Вскрытое нападение</td><td>Ход одной фигуры открывает линию для атаки другой фигурой</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      В диаграммах ниже фигуры обозначены стандартной
+      <a href="../../en/chess/openings.html#notation" hreflang="en">алгебраической нотацией</a>.
+      Каждая позиция также хранится в виде строки FEN — компактного текстового
+      описания доски.<sup><a href="#ref5">[5]</a></sup>
+    </p>
+
+    <h2 id="fork">Вилка</h2>
+    <p>
+      Вилка — это один ход, который одновременно атакует две или более фигур
+      противника.<sup><a href="#ref2">[2]</a></sup> Кони особенно эффективны,
+      потому что их ходы трудно предвидеть.
+    </p>
+    <figure>
+      <div class="chess-board" data-fen="r3k3/8/8/3N4/8/8/8/4K3 w - - 0 1"
+           data-label="Позиция с вилкой: белый конь на d5, белый король на e1, чёрный король на e8, чёрная ладья на a8">
+        <noscript>Для диаграммы нужен JavaScript. См. описание ниже.</noscript>
+      </div>
+      <figcaption>
+        Ход белых. Белые: король e1, конь d5. Чёрные: король e8, ладья a8.
+        FEN: <code>r3k3/8/8/3N4/8/8/8/4K3 w - - 0 1</code>
+      </figcaption>
+    </figure>
+    <details>
+      <summary>Показать решение</summary>
+      <p>
+        <code>1. Кc7+</code> одновременно атакует короля на e8 и ладью на a8.
+        Король должен уйти, после чего белые берут ладью:
+        <code>2. Кxa8</code>. Белые выигрывают ладью.
+      </p>
+    </details>
+
+    <h2 id="pin">Связка</h2>
+    <p>
+      Связка — это атака на фигуру, которая не может сдвинуться, не открыв
+      более ценную фигуру позади неё.<sup><a href="#ref3">[3]</a></sup> Если
+      позади находится король, связка называется абсолютной: ход связанной
+      фигурой был бы незаконным.
+    </p>
+    <figure>
+      <div class="chess-board" data-fen="4k3/8/8/8/1b6/8/3N4/4K3 w - - 0 1"
+           data-label="Позиция со связкой: чёрный слон на b4 связывает белого коня на d2 с белым королём на e1">
+        <noscript>Для диаграммы нужен JavaScript. См. описание ниже.</noscript>
+      </div>
+      <figcaption>
+        Ход белых. Белые: король e1, конь d2. Чёрные: король e8, слон b4.
+        FEN: <code>4k3/8/8/8/1b6/8/3N4/4K3 w - - 0 1</code>
+      </figcaption>
+    </figure>
+    <details>
+      <summary>Показать объяснение</summary>
+      <p>
+        Слон на b4 атакует по диагонали короля на e1, а конь на d2 стоит между
+        ними. Конь не может сделать ни одного допустимого хода, потому что ход
+        конём оставил бы короля под шахом.
+      </p>
+    </details>
+
+    <h2 id="skewer">Сквозной удар</h2>
+    <p>
+      Сквозной удар — это обратная связка: более ценная фигура должна уйти,
+      после чего берётся фигура, стоящая позади неё.<sup><a href="#ref4">[4]</a></sup>
+    </p>
+    <figure>
+      <div class="chess-board" data-fen="4q3/8/8/4k3/8/8/8/K6R w - - 0 1"
+           data-label="Позиция со сквозным ударом: белая ладья на h1, белый король на a1, чёрный король на e5, чёрный ферзь на e8">
+        <noscript>Для диаграммы нужен JavaScript. См. описание ниже.</noscript>
+      </div>
+      <figcaption>
+        Ход белых. Белые: король a1, ладья h1. Чёрные: король e5, ферзь e8.
+        FEN: <code>4q3/8/8/4k3/8/8/8/K6R w - - 0 1</code>
+      </figcaption>
+    </figure>
+    <details>
+      <summary>Показать решение</summary>
+      <p>
+        <code>1. Лe1+</code> объявляет шах по вертикали e. Король должен покинуть
+        вертикаль, после чего ферзь на e8, стоявший позади него, берётся ходом
+        <code>2. Лxe8</code>.
+      </p>
+    </details>
+
+    <h2 id="training">Подход к тренировке</h2>
+    <p>
+      Тактическое мастерство основано на распознавании шаблонов, поэтому
+      короткие ежедневные занятия с задачами эффективнее редких длинных. Перед
+      каждым ходом следует последовательно проверить форсированные варианты:
+      шахи, взятия и прямые угрозы. Полное решение задачи в уме до того, как
+      сдвинута хотя бы одна фигура, формирует привычку к расчёту, которой
+      требуют партии.
+    </p>
+
+    <h2 id="see-also">См. также</h2>
+    <ul>
+      <li><a href="index.html">Шахматы</a>: обзор категории.</li>
+      <li><a href="../../en/chess/openings.html" hreflang="en">Шахматные дебюты</a>: стадия, подготавливающая тактические возможности.</li>
+      <li><a href="../../en/chess/strategy.html" hreflang="en">Стратегия</a>: долгосрочное планирование.</li>
+    </ul>
+
+    <h2 id="references">Примечания</h2>
+    <ol class="references">
+      <li id="ref1"><a href="https://en.wikipedia.org/wiki/Chess_tactic" rel="noopener" lang="en">Chess tactic</a>. Wikipedia (на английском языке).</li>
+      <li id="ref2"><a href="https://en.wikipedia.org/wiki/Fork_(chess)" rel="noopener" lang="en">Fork (chess)</a>. Wikipedia (на английском языке).</li>
+      <li id="ref3"><a href="https://en.wikipedia.org/wiki/Pin_(chess)" rel="noopener" lang="en">Pin (chess)</a>. Wikipedia (на английском языке).</li>
+      <li id="ref4"><a href="https://en.wikipedia.org/wiki/Skewer_(chess)" rel="noopener" lang="en">Skewer (chess)</a>. Wikipedia (на английском языке).</li>
+      <li id="ref5"><a href="https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation" rel="noopener" lang="en">Forsyth–Edwards Notation</a>. Wikipedia (на английском языке).</li>
+    </ol>
+  </main>
+
+  <footer id="site-footer"><p>Содержимое поддерживается автором. Последнее обновление: октябрь 2026.</p></footer>
+
+  <script src="../../js/board.js" defer></script>
+</body>
+</html>
