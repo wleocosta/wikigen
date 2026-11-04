@@ -1,0 +1,114 @@
+title: Программирование
+description: Обзор программирования: веб-языки HTML, CSS и JavaScript, принципы чистого кода и практический подход к изучению.
+---
+    <h1>Программирование</h1>
+    <p class="hatnote">Эта статья входит в категорию <a href="index.html">Технологии</a>.</p>
+
+    <table class="infobox">
+      <caption>Программирование</caption>
+      <tr><th scope="row">Категория</th><td>Разработка программного обеспечения</td></tr>
+      <tr><th scope="row">Основной фокус</th><td>Веб-разработка</td></tr>
+      <tr><th scope="row">Веб-языки</th><td>HTML, CSS, JavaScript</td></tr>
+      <tr><th scope="row">Ключевой принцип</th><td>Чистый код</td></tr>
+      <tr><th scope="row">Связанные темы</th><td><a href="automation.html" class="new">Автоматизация</a>, <a href="../finance/index.html">финансы</a></td></tr>
+    </table>
+
+    <p>
+      <strong>Программирование</strong> — написание инструкций, которые может
+      выполнить компьютер.<sup><a href="#ref1">[1]</a></sup> Эти инструкции,
+      называемые исходным кодом, пишутся на языке программирования и шаг за
+      шагом описывают, что должен делать компьютер. В этой энциклопедии под
+      предметом понимается главным образом веб-разработка — создание сайтов и
+      веб-приложений, которая опирается на три основных языка: HTML, CSS и
+      JavaScript. Программа может также считывать показания датчика или
+      управлять двигателем, что связывает программное обеспечение с физическим
+      миром, как в <a href="automation.html" class="new">автоматизации</a>.
+    </p>
+
+    <nav class="toc" aria-labelledby="toc-title">
+      <h2 id="toc-title">Содержание</h2>
+      <ol>
+        <li><a href="#languages">Веб-языки</a></li>
+        <li><a href="#clean">Чистый код</a></li>
+        <li><a href="#study">Подход к изучению</a></li>
+        <li><a href="#see-also">См. также</a></li>
+        <li><a href="#references">Примечания</a></li>
+      </ol>
+    </nav>
+
+    <h2 id="languages">Веб-языки</h2>
+    <p>
+      Каждая веб-страница строится из трёх слоёв, у каждого из которых свой
+      язык.<sup><a href="#ref2">[2]</a></sup><sup><a href="#ref3">[3]</a></sup><sup><a href="#ref4">[4]</a></sup>
+    </p>
+    <div class="table-wrap">
+      <table class="wikitable">
+        <caption>Три основных веб-языка</caption>
+        <thead>
+          <tr><th scope="col">Слой</th><th scope="col">Язык</th><th scope="col">Роль</th><th scope="col">Пример</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Структура</td><td>HTML</td><td>Определяет содержимое и его смысл: заголовки, абзацы, ссылки и списки</td><td><code>&lt;h1&gt;Заголовок&lt;/h1&gt;</code></td></tr>
+          <tr><td>Представление</td><td>CSS</td><td>Управляет внешним видом: цветами, шрифтами и компоновкой</td><td><code>h1 { color: navy; }</code></td></tr>
+          <tr><td>Поведение</td><td>JavaScript</td><td>Добавляет логику и взаимодействие в браузере</td><td><code>document.title = "Привет";</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      Разделение этих трёх слоёв применяет принцип разделения ответственности,
+      который делит программу на части, каждая из которых отвечает за одну
+      задачу.<sup><a href="#ref5">[5]</a></sup> Изменение внешнего вида тогда
+      требует правки только CSS, а не HTML. Семантический HTML поддерживает этот
+      принцип, используя такие элементы, как <code>header</code>,
+      <code>nav</code>, <code>main</code> и <code>article</code>, которые
+      описывают смысл содержимого, а не его внешний вид.
+    </p>
+
+    <h2 id="clean">Чистый код</h2>
+    <p>
+      Чистый код — это код, который другие люди, а также сам автор спустя время
+      могут читать и изменять без больших усилий. Распространённые практики:
+    </p>
+    <ul>
+      <li><strong>Осмысленные имена</strong>: переменные и функции называются по тому, что они представляют.</li>
+      <li><strong>Небольшие функции</strong>: каждая функция делает одно дело.</li>
+      <li><strong>Без повторений</strong>: каждая часть знания записывается один раз — правило, известное как <em>не повторяйся</em> (DRY, <em lang="en">don't repeat yourself</em>).<sup><a href="#ref6">[6]</a></sup></li>
+      <li><strong>Полезные комментарии</strong>: комментарии объясняют, почему принято решение, а не то, что код уже говорит.</li>
+      <li><strong>Единообразное форматирование</strong>: отступы и стиль одинаковы во всём проекте.</li>
+    </ul>
+
+    <h2 id="study">Подход к изучению</h2>
+    <p>
+      Навыки программирования приходят через создание, поэтому небольшие проекты
+      учат больше, чем одно чтение. Практический путь таков:
+    </p>
+    <ol>
+      <li>Написать статичную страницу на HTML, а затем оформить её с помощью CSS.</li>
+      <li>Добавить одно взаимодействие с помощью JavaScript, например кнопку, которая меняет текст.</li>
+      <li>Читать сообщения об ошибках и использовать инструменты разработчика в браузере, чтобы найти причину проблемы; поиск и исправление ошибок называется отладкой.</li>
+      <li>Записывать каждое изменение в системе контроля версий, такой как Git,<sup><a href="#ref7">[7]</a></sup> чтобы можно было восстановить прежние версии.</li>
+    </ol>
+    <p>
+      Если сначала изучить немногие понятия, встречающиеся почти в каждой
+      программе, — переменные, условия, циклы и функции, — отдача от
+      потраченного времени будет наибольшей.
+    </p>
+
+    <h2 id="see-also">См. также</h2>
+    <ul>
+      <li><a href="index.html">Технологии</a>: обзор категории.</li>
+      <li><a href="automation.html" class="new">Автоматизация</a>: программы, которые считывают показания датчиков и управляют машинами.</li>
+      <li><a href="../finance/index.html">Финансы</a>: программирование помогает анализировать рыночные данные.</li>
+      <li><a href="../languages/index.html">Языки</a>: интернационализация позволяет сайту представлять своё содержимое на нескольких языках.</li>
+    </ul>
+
+    <h2 id="references">Примечания</h2>
+    <ol class="references">
+      <li id="ref1"><a href="https://en.wikipedia.org/wiki/Computer_programming" rel="noopener" lang="en">Computer programming</a>. Wikipedia (на английском языке).</li>
+      <li id="ref2"><a href="https://en.wikipedia.org/wiki/HTML" rel="noopener" lang="en">HTML</a>. Wikipedia (на английском языке).</li>
+      <li id="ref3"><a href="https://en.wikipedia.org/wiki/CSS" rel="noopener" lang="en">CSS</a>. Wikipedia (на английском языке).</li>
+      <li id="ref4"><a href="https://en.wikipedia.org/wiki/JavaScript" rel="noopener" lang="en">JavaScript</a>. Wikipedia (на английском языке).</li>
+      <li id="ref5"><a href="https://en.wikipedia.org/wiki/Separation_of_concerns" rel="noopener" lang="en">Separation of concerns</a>. Wikipedia (на английском языке).</li>
+      <li id="ref6"><a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself" rel="noopener" lang="en">Don't repeat yourself</a>. Wikipedia (на английском языке).</li>
+      <li id="ref7"><a href="https://en.wikipedia.org/wiki/Git" rel="noopener" lang="en">Git</a>. Wikipedia (на английском языке).</li>
+    </ol>
