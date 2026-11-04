@@ -1,0 +1,132 @@
+title: Electronics
+description: Encyclopedic overview of electronics: basic quantities, common components, safe low-voltage practice and a practical approach to study.
+---
+    <h1>Electronics</h1>
+    <p class="hatnote">This article is part of the <a href="index.html">Technology</a> category.</p>
+
+    <table class="infobox">
+      <caption>Electronics</caption>
+      <tr><th scope="row">Category</th><td>Hardware and hands-on practice</td></tr>
+      <tr><th scope="row">Main focus</th><td>Building and repairing circuits</td></tr>
+      <tr><th scope="row">Key quantities</th><td>Voltage, current, resistance</td></tr>
+      <tr><th scope="row">Common components</th><td>Resistor, capacitor, diode, transistor, microcontroller</td></tr>
+      <tr><th scope="row">Related</th><td><a href="programming.html">Programming</a>, <a href="../music/index.html">music</a></td></tr>
+    </table>
+
+    <p>
+      <strong>Electronics</strong> is the field of science and engineering that
+      deals with circuits in which the flow of electric current is controlled
+      in order to process signals or information.<sup><a href="#ref1">[1]</a></sup>
+      In this encyclopedia, the subject refers to hands-on electronics: the
+      building and repair of circuits from basic components, often combined
+      with a microcontroller that runs a <a href="programming.html">program</a>.
+      This combination links software to machines that sense and act, as in
+      <a href="automation.html" class="new">automation</a>.
+    </p>
+
+    <nav class="toc" aria-labelledby="toc-title">
+      <h2 id="toc-title">Contents</h2>
+      <ol>
+        <li><a href="#quantities">Basic quantities</a></li>
+        <li><a href="#components">Common components</a></li>
+        <li><a href="#safety">Tools and safety</a></li>
+        <li><a href="#study">Study approach</a></li>
+        <li><a href="#see-also">See also</a></li>
+        <li><a href="#references">References</a></li>
+      </ol>
+    </nav>
+
+    <h2 id="quantities">Basic quantities</h2>
+    <p>
+      Three quantities describe most simple circuits.
+    </p>
+    <div class="table-wrap">
+      <table class="wikitable">
+        <caption>Basic electrical quantities</caption>
+        <thead>
+          <tr><th scope="col">Quantity</th><th scope="col">Symbol</th><th scope="col">Unit</th><th scope="col">Meaning</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Voltage</td><td>V</td><td>volt (V)</td><td>The electrical pressure that drives current through a circuit</td></tr>
+          <tr><td>Current</td><td>I</td><td>ampere (A)</td><td>The flow of electric charge</td></tr>
+          <tr><td>Resistance</td><td>R</td><td>ohm (Ω)</td><td>The opposition to the flow of current</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      Ohm's law relates the three: the voltage across a resistor equals the
+      current through it multiplied by its resistance, or <code>V = I × R</code>.<sup><a href="#ref2">[2]</a></sup>
+      For example, to run a red LED at 20 mA from a 5 V supply, with the LED
+      dropping about 2 V, the resistor must drop the remaining 3 V, so
+      <code>R = 3 V / 0.02 A = 150 Ω</code>.
+    </p>
+
+    <h2 id="components">Common components</h2>
+    <div class="table-wrap">
+      <table class="wikitable">
+        <caption>Basic electronic components</caption>
+        <thead>
+          <tr><th scope="col">Component</th><th scope="col">Function</th><th scope="col">Example use</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Resistor<sup><a href="#ref3">[3]</a></sup></td><td>Limits the current</td><td>Protects an LED</td></tr>
+          <tr><td>Capacitor<sup><a href="#ref4">[4]</a></sup></td><td>Stores electric charge temporarily</td><td>Smooths the voltage of a power supply</td></tr>
+          <tr><td>Diode<sup><a href="#ref5">[5]</a></sup></td><td>Lets current flow in one direction only</td><td>Protects a circuit from reversed polarity</td></tr>
+          <tr><td>Transistor<sup><a href="#ref6">[6]</a></sup></td><td>Switches or amplifies a signal</td><td>Switches a motor or a relay on and off</td></tr>
+          <tr><td>Microcontroller<sup><a href="#ref7">[7]</a></sup></td><td>A small programmable computer on a single chip</td><td>Reads a sensor and controls an output</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="safety">Tools and safety</h2>
+    <p>
+      A basic workbench needs a multimeter, which measures voltage, current and
+      resistance; a breadboard, on which circuits are assembled without
+      soldering; a soldering iron; and wire strippers. Safe practice includes:
+    </p>
+    <ul>
+      <li><strong>Low voltage first</strong>: batteries and 5 V USB supplies are the safe place to start.</li>
+      <li><strong>No mains electricity</strong>: household voltage can cause serious injury or death and should be handled only by qualified people.</li>
+      <li><strong>Power off</strong>: disconnect the power before changing a circuit.</li>
+      <li><strong>Check polarity</strong>: components such as LEDs, diodes and electrolytic capacitors work in one direction only, and a reversed connection can damage them.</li>
+      <li><strong>Heat</strong>: a soldering iron is hot enough to cause burns, so it is kept in its stand when not in use.</li>
+    </ul>
+    <p>
+      <em>This article is educational and is not a substitute for professional
+      training.</em>
+    </p>
+
+    <h2 id="study">Study approach</h2>
+    <p>
+      Theory is consolidated by building, so a practical sequence is:
+    </p>
+    <ol>
+      <li>Learn voltage, current, resistance and Ohm's law.</li>
+      <li>Build a simple circuit on a breadboard, such as an LED with a resistor.</li>
+      <li>Measure the circuit with a multimeter and compare the result with the calculation.</li>
+      <li>Add a microcontroller and a <a href="programming.html">program</a> that reads a sensor or switches an output.</li>
+    </ol>
+    <p>
+      These basic skills also allow simple low-voltage faults, such as a loose
+      connection or a failed fuse, to be found and repaired without hiring
+      third-party services.
+    </p>
+
+    <h2 id="see-also">See also</h2>
+    <ul>
+      <li><a href="index.html">Technology</a>: category overview.</li>
+      <li><a href="programming.html">Programming</a>: a microcontroller runs a program written by its user.</li>
+      <li><a href="../music/index.html">Music</a>: audio electronics connects instruments, amplifiers and signal processing.</li>
+      <li><a href="automation.html" class="new">Automation</a>: circuits and programs that sense and control machines.</li>
+    </ul>
+
+    <h2 id="references">References</h2>
+    <ol class="references">
+      <li id="ref1"><a href="https://en.wikipedia.org/wiki/Electronics" rel="noopener">Electronics</a>. Wikipedia.</li>
+      <li id="ref2"><a href="https://en.wikipedia.org/wiki/Ohm%27s_law" rel="noopener">Ohm's law</a>. Wikipedia.</li>
+      <li id="ref3"><a href="https://en.wikipedia.org/wiki/Resistor" rel="noopener">Resistor</a>. Wikipedia.</li>
+      <li id="ref4"><a href="https://en.wikipedia.org/wiki/Capacitor" rel="noopener">Capacitor</a>. Wikipedia.</li>
+      <li id="ref5"><a href="https://en.wikipedia.org/wiki/Diode" rel="noopener">Diode</a>. Wikipedia.</li>
+      <li id="ref6"><a href="https://en.wikipedia.org/wiki/Transistor" rel="noopener">Transistor</a>. Wikipedia.</li>
+      <li id="ref7"><a href="https://en.wikipedia.org/wiki/Microcontroller" rel="noopener">Microcontroller</a>. Wikipedia.</li>
+    </ol>
