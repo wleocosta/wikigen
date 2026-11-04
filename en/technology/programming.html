@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programming</title>
+  <meta name="description" content="Encyclopedic overview of programming: web languages HTML, CSS and JavaScript, clean code principles and a practical approach to study.">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+  <header id="site-header"><a href="../index.html" class="site-title">My Wiki</a><nav aria-label="Main navigation"><ul><li><a href="../index.html">Main Page</a></li><li><a href="../music/index.html">Music</a></li><li><a href="../chess/index.html">Chess</a></li><li><a href="../sports/index.html">Sports</a></li><li><a href="../technology/index.html">Technology</a></li><li><a href="../finance/index.html">Finance</a></li><li><a href="../accounting/index.html">Accounting</a></li><li><a href="../languages/index.html">Languages</a></li></ul></nav></header>
+
+  <main>
+    <h1>Programming</h1>
+    <p class="hatnote">This article is part of the <a href="index.html">Technology</a> category.</p>
+
+    <table class="infobox">
+      <caption>Programming</caption>
+      <tr><th scope="row">Category</th><td>Software development</td></tr>
+      <tr><th scope="row">Main focus</th><td>Web development</td></tr>
+      <tr><th scope="row">Web languages</th><td>HTML, CSS, JavaScript</td></tr>
+      <tr><th scope="row">Key principle</th><td>Clean code</td></tr>
+      <tr><th scope="row">Related</th><td><a href="automation.html" class="new">Automation</a>, <a href="../finance/index.html">finance</a></td></tr>
+    </table>
+
+    <p>
+      <strong>Programming</strong> is the writing of instructions that a
+      computer can execute.<sup><a href="#ref1">[1]</a></sup> These instructions,
+      called source code, are written in a programming language and describe
+      step by step what the computer must do. In this encyclopedia, the subject
+      refers mainly to web development, the creation of websites and web
+      applications, which relies on three core languages: HTML, CSS and
+      JavaScript. A program can also read a sensor or control a motor, which
+      links software to the physical world, as in
+      <a href="automation.html" class="new">automation</a>.
+    </p>
+
+    <nav class="toc" aria-labelledby="toc-title">
+      <h2 id="toc-title">Contents</h2>
+      <ol>
+        <li><a href="#languages">Web languages</a></li>
+        <li><a href="#clean">Clean code</a></li>
+        <li><a href="#study">Study approach</a></li>
+        <li><a href="#see-also">See also</a></li>
+        <li><a href="#references">References</a></li>
+      </ol>
+    </nav>
+
+    <h2 id="languages">Web languages</h2>
+    <p>
+      Every web page is built from three layers, each with its own
+      language.<sup><a href="#ref2">[2]</a></sup><sup><a href="#ref3">[3]</a></sup><sup><a href="#ref4">[4]</a></sup>
+    </p>
+    <div class="table-wrap">
+      <table class="wikitable">
+        <caption>The three core web languages</caption>
+        <thead>
+          <tr><th scope="col">Layer</th><th scope="col">Language</th><th scope="col">Role</th><th scope="col">Example</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Structure</td><td>HTML</td><td>Defines the content and its meaning: headings, paragraphs, links and lists</td><td><code>&lt;h1&gt;Title&lt;/h1&gt;</code></td></tr>
+          <tr><td>Presentation</td><td>CSS</td><td>Controls the appearance: colours, fonts and layout</td><td><code>h1 { color: navy; }</code></td></tr>
+          <tr><td>Behaviour</td><td>JavaScript</td><td>Adds logic and interaction in the browser</td><td><code>document.title = "Hello";</code></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      Keeping the three layers separate applies the principle of separation of
+      concerns, which divides a program into parts that each handle one
+      responsibility.<sup><a href="#ref5">[5]</a></sup> A change of appearance
+      then requires a change only in the CSS, not in the HTML. Semantic HTML
+      supports this principle by using elements such as <code>header</code>,
+      <code>nav</code>, <code>main</code> and <code>article</code>, which describe
+      the meaning of the content rather than its appearance.
+    </p>
+
+    <h2 id="clean">Clean code</h2>
+    <p>
+      Clean code is code that other people, and the author at a later date, can
+      read and change with little effort. Common practices are:
+    </p>
+    <ul>
+      <li><strong>Meaningful names</strong>: variables and functions are named after what they represent.</li>
+      <li><strong>Small functions</strong>: each function does one thing.</li>
+      <li><strong>No repetition</strong>: each piece of knowledge is stated once, a rule known as <em>don't repeat yourself</em>.<sup><a href="#ref6">[6]</a></sup></li>
+      <li><strong>Useful comments</strong>: comments explain why a decision was made, not what the code already says.</li>
+      <li><strong>Consistent formatting</strong>: indentation and style are uniform across the project.</li>
+    </ul>
+
+    <h2 id="study">Study approach</h2>
+    <p>
+      Programming skill comes from building, so small projects teach more than
+      reading alone. A practical path is:
+    </p>
+    <ol>
+      <li>Write a static page in HTML, then style it with CSS.</li>
+      <li>Add one interaction with JavaScript, such as a button that changes a text.</li>
+      <li>Read the error messages and use the developer tools of the browser to find the cause of a problem; finding and fixing errors is called debugging.</li>
+      <li>Record every change with a version control system such as Git,<sup><a href="#ref7">[7]</a></sup> so that earlier versions can be restored.</li>
+    </ol>
+    <p>
+      Learning first the few concepts that appear in almost every program, such
+      as variables, conditions, loops and functions, gives the greatest return
+      for the time spent.
+    </p>
+
+    <h2 id="see-also">See also</h2>
+    <ul>
+      <li><a href="index.html">Technology</a>: category overview.</li>
+      <li><a href="automation.html" class="new">Automation</a>: programs that read sensors and control machines.</li>
+      <li><a href="../finance/index.html">Finance</a>: programming supports the analysis of market data.</li>
+      <li><a href="../languages/index.html">Languages</a>: internationalisation allows a website to present its content in several languages.</li>
+    </ul>
+
+    <h2 id="references">References</h2>
+    <ol class="references">
+      <li id="ref1"><a href="https://en.wikipedia.org/wiki/Computer_programming" rel="noopener">Computer programming</a>. Wikipedia.</li>
+      <li id="ref2"><a href="https://en.wikipedia.org/wiki/HTML" rel="noopener">HTML</a>. Wikipedia.</li>
+      <li id="ref3"><a href="https://en.wikipedia.org/wiki/CSS" rel="noopener">CSS</a>. Wikipedia.</li>
+      <li id="ref4"><a href="https://en.wikipedia.org/wiki/JavaScript" rel="noopener">JavaScript</a>. Wikipedia.</li>
+      <li id="ref5"><a href="https://en.wikipedia.org/wiki/Separation_of_concerns" rel="noopener">Separation of concerns</a>. Wikipedia.</li>
+      <li id="ref6"><a href="https://en.wikipedia.org/wiki/Don%27t_repeat_yourself" rel="noopener">Don't repeat yourself</a>. Wikipedia.</li>
+      <li id="ref7"><a href="https://en.wikipedia.org/wiki/Git" rel="noopener">Git</a>. Wikipedia.</li>
+    </ol>
+  </main>
+
+  <footer id="site-footer"><p>Content is maintained by the author. Last updated: October 2026.</p></footer>
+
+</body>
+</html>
