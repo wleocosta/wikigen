@@ -1,0 +1,123 @@
+title: Robotics
+description: Encyclopedic overview of robotics: the main parts of a robot, common types, safe practice and a practical approach to building a first robot.
+---
+    <h1>Robotics</h1>
+    <p class="hatnote">This article is part of the <a href="index.html">Technology</a> category.</p>
+
+    <table class="infobox">
+      <caption>Robotics</caption>
+      <tr><th scope="row">Category</th><td>Hardware and systems</td></tr>
+      <tr><th scope="row">Main focus</th><td>Machines that sense, decide and act</td></tr>
+      <tr><th scope="row">Main parts</th><td>Sensors, controller, actuators, power supply, structure</td></tr>
+      <tr><th scope="row">Disciplines</th><td>Mechanics, electronics, programming</td></tr>
+      <tr><th scope="row">Related</th><td><a href="automation.html">Automation</a>, <a href="electronics.html">electronics</a>, <a href="programming.html">programming</a></td></tr>
+    </table>
+
+    <p>
+      <strong>Robotics</strong> is the field concerned with the design,
+      construction and programming of robots, which are machines that sense
+      their environment and act on it.<sup><a href="#ref1">[1]</a></sup><sup><a href="#ref2">[2]</a></sup>
+      In this encyclopedia, the subject refers to hands-on robotics, which
+      combines mechanics, <a href="electronics.html">electronics</a> and
+      <a href="programming.html">programming</a>. It extends
+      <a href="automation.html">automation</a> to machines that move, either as
+      a whole or through arms and tools.
+    </p>
+
+    <nav class="toc" aria-labelledby="toc-title">
+      <h2 id="toc-title">Contents</h2>
+      <ol>
+        <li><a href="#parts">Main parts</a></li>
+        <li><a href="#types">Types of robots</a></li>
+        <li><a href="#safety">Safety</a></li>
+        <li><a href="#study">Study approach</a></li>
+        <li><a href="#see-also">See also</a></li>
+        <li><a href="#references">References</a></li>
+      </ol>
+    </nav>
+
+    <h2 id="parts">Main parts</h2>
+    <div class="table-wrap">
+      <table class="wikitable">
+        <caption>Main parts of a robot</caption>
+        <thead>
+          <tr><th scope="col">Part</th><th scope="col">Role</th><th scope="col">Example</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Sensors</td><td>Measure the environment or the state of the robot itself</td><td>A distance sensor, a camera or a rotary encoder<sup><a href="#ref3">[3]</a></sup></td></tr>
+          <tr><td>Controller</td><td>Runs the program that decides what to do</td><td>A microcontroller or a small computer</td></tr>
+          <tr><td>Actuators</td><td>Produce movement</td><td>A servo motor<sup><a href="#ref4">[4]</a></sup> or a stepper motor<sup><a href="#ref5">[5]</a></sup></td></tr>
+          <tr><td>Power supply</td><td>Provides electrical energy</td><td>A battery pack</td></tr>
+          <tr><td>Structure</td><td>Holds the parts together and transmits movement</td><td>A frame, wheels, joints and gears</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      A robot repeats the same sense, decide and act cycle as any control loop
+      in automation, but its actuators move the machine itself or its tools. A
+      robot that measures the rotation of its wheels with an encoder and
+      corrects its speed is using feedback.
+    </p>
+
+    <h2 id="types">Types of robots</h2>
+    <div class="table-wrap">
+      <table class="wikitable">
+        <caption>Common types of robots</caption>
+        <thead>
+          <tr><th scope="col">Type</th><th scope="col">Description</th><th scope="col">Example</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Industrial robot arm<sup><a href="#ref6">[6]</a></sup></td><td>A fixed, jointed arm that repeats precise tasks</td><td>Welding or assembling parts on a production line</td></tr>
+          <tr><td>Mobile robot<sup><a href="#ref7">[7]</a></sup></td><td>A robot that moves through its environment on wheels, tracks or legs</td><td>A warehouse vehicle or a robot vacuum cleaner</td></tr>
+          <tr><td>Educational robot</td><td>A small, low-cost robot used for learning</td><td>A wheeled robot that follows a line or avoids obstacles</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="safety">Safety</h2>
+    <p>
+      A robot is a machine with moving parts and an energy source, so building
+      one involves risks. Safe practice includes:
+    </p>
+    <ul>
+      <li><strong>Moving parts</strong>: motors, gears and wheels can pinch fingers or cause injury, so hands and clothing are kept clear while the robot is powered.</li>
+      <li><strong>Power off</strong>: the battery is disconnected before the wiring is changed.</li>
+      <li><strong>Batteries</strong>: lithium batteries can overheat or ignite if they are short-circuited or overcharged, so only the matching charger is used.</li>
+      <li><strong>Safe testing</strong>: a new program is first tested with the wheels lifted off the ground, so that an error cannot send the robot across the table.</li>
+      <li><strong>Larger robots</strong>: stronger motors can cause serious injury, so a safe distance and an emergency stop are required.</li>
+    </ul>
+    <p>
+      <em>This article is educational and is not a substitute for professional
+      training.</em>
+    </p>
+
+    <h2 id="study">Study approach</h2>
+    <p>
+      A small working robot teaches more than a complex unfinished one, so a
+      practical sequence is:
+    </p>
+    <ol>
+      <li>Learn the basics of <a href="electronics.html">electronics</a> and <a href="programming.html">programming</a>.</li>
+      <li>Build a small wheeled robot with two motors, a controller and a distance sensor.</li>
+      <li>Write a program with simple rules, such as turning away when the sensor detects an obstacle closer than a set distance.</li>
+      <li>Add feedback, such as wheel encoders, and refine the behaviour step by step.</li>
+    </ol>
+
+    <h2 id="see-also">See also</h2>
+    <ul>
+      <li><a href="index.html">Technology</a>: category overview.</li>
+      <li><a href="automation.html">Automation</a>: the control loop that robots use.</li>
+      <li><a href="electronics.html">Electronics</a>: the circuits, motors and sensors that robots are built from.</li>
+      <li><a href="programming.html">Programming</a>: the logic that runs in the controller.</li>
+    </ul>
+
+    <h2 id="references">References</h2>
+    <ol class="references">
+      <li id="ref1"><a href="https://en.wikipedia.org/wiki/Robotics" rel="noopener">Robotics</a>. Wikipedia.</li>
+      <li id="ref2"><a href="https://en.wikipedia.org/wiki/Robot" rel="noopener">Robot</a>. Wikipedia.</li>
+      <li id="ref3"><a href="https://en.wikipedia.org/wiki/Rotary_encoder" rel="noopener">Rotary encoder</a>. Wikipedia.</li>
+      <li id="ref4"><a href="https://en.wikipedia.org/wiki/Servomotor" rel="noopener">Servomotor</a>. Wikipedia.</li>
+      <li id="ref5"><a href="https://en.wikipedia.org/wiki/Stepper_motor" rel="noopener">Stepper motor</a>. Wikipedia.</li>
+      <li id="ref6"><a href="https://en.wikipedia.org/wiki/Industrial_robot" rel="noopener">Industrial robot</a>. Wikipedia.</li>
+      <li id="ref7"><a href="https://en.wikipedia.org/wiki/Mobile_robot" rel="noopener">Mobile robot</a>. Wikipedia.</li>
+    </ol>
