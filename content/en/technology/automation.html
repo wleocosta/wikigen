@@ -1,0 +1,124 @@
+title: Automation
+description: Encyclopedic overview of automation: the sense, decide and act control loop, home and industrial applications, safety and a practical approach to study.
+---
+    <h1>Automation</h1>
+    <p class="hatnote">This article is part of the <a href="index.html">Technology</a> category.</p>
+
+    <table class="infobox">
+      <caption>Automation</caption>
+      <tr><th scope="row">Category</th><td>Systems and control</td></tr>
+      <tr><th scope="row">Main fields</th><td>Home automation, industrial automation</td></tr>
+      <tr><th scope="row">Key principle</th><td>Sense, decide, act</td></tr>
+      <tr><th scope="row">Typical components</th><td>Sensor, controller, actuator</td></tr>
+      <tr><th scope="row">Related</th><td><a href="electronics.html">Electronics</a>, <a href="programming.html">programming</a></td></tr>
+    </table>
+
+    <p>
+      <strong>Automation</strong> is the use of technology to perform tasks with
+      minimal human intervention.<sup><a href="#ref1">[1]</a></sup> In this
+      encyclopedia, the subject refers to home and industrial automation, which
+      combine three fields covered in this category: <a href="electronics.html">electronics</a>
+      for the hardware, <a href="programming.html">programming</a> for the logic,
+      and control, the method by which a system corrects its own behaviour.
+    </p>
+
+    <nav class="toc" aria-labelledby="toc-title">
+      <h2 id="toc-title">Contents</h2>
+      <ol>
+        <li><a href="#loop">Control loop</a></li>
+        <li><a href="#fields">Home and industrial automation</a></li>
+        <li><a href="#safety">Safety</a></li>
+        <li><a href="#study">Study approach</a></li>
+        <li><a href="#see-also">See also</a></li>
+        <li><a href="#references">References</a></li>
+      </ol>
+    </nav>
+
+    <h2 id="loop">Control loop</h2>
+    <p>
+      Most automated systems repeat a cycle of three steps: sense, decide and
+      act.<sup><a href="#ref2">[2]</a></sup>
+    </p>
+    <div class="table-wrap">
+      <table class="wikitable">
+        <caption>The three stages of a control loop</caption>
+        <thead>
+          <tr><th scope="col">Stage</th><th scope="col">Component</th><th scope="col">Role</th><th scope="col">Example</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Sense</td><td>Sensor<sup><a href="#ref3">[3]</a></sup></td><td>Measures a physical quantity</td><td>A temperature sensor</td></tr>
+          <tr><td>Decide</td><td>Controller</td><td>Compares the measurement with a target and chooses an action</td><td>A microcontroller or a programmable logic controller<sup><a href="#ref4">[4]</a></sup></td></tr>
+          <tr><td>Act</td><td>Actuator<sup><a href="#ref5">[5]</a></sup></td><td>Changes something in the physical world</td><td>A relay that switches a heater or a motor</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      A thermostat is the simplest example: a sensor measures the room
+      temperature, the controller compares it with the target, and the actuator
+      switches the heater on or off. When the result of an action is measured
+      again and used to correct the next action, the system uses feedback. A
+      system without feedback, such as a timer that switches a light on at a
+      fixed hour, is called open-loop.
+    </p>
+
+    <h2 id="fields">Home and industrial automation</h2>
+    <div class="table-wrap">
+      <table class="wikitable">
+        <caption>Main fields of automation</caption>
+        <thead>
+          <tr><th scope="col">Field</th><th scope="col">Typical tasks</th><th scope="col">Typical equipment</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Home automation<sup><a href="#ref6">[6]</a></sup></td><td>Lighting, heating, security and irrigation</td><td>Smart switches, sensors and low-power controllers, often connected to a network</td></tr>
+          <tr><td>Industrial automation<sup><a href="#ref7">[7]</a></sup></td><td>Production lines, process control and packaging</td><td>Programmable logic controllers, sensors, motors and valves</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="safety">Safety</h2>
+    <p>
+      Automated systems act on the physical world, so a fault can cause damage
+      or injury. Safe practice includes:
+    </p>
+    <ul>
+      <li><strong>Low voltage first</strong>: practise with batteries and 5 V supplies, as in <a href="electronics.html#safety">electronics</a>.</li>
+      <li><strong>Mains circuits</strong>: lighting, heaters and sockets use household voltage, and their installation should be done only by qualified people.</li>
+      <li><strong>Safe state</strong>: the system is designed so that a failure of a sensor, a program or the power leaves it in a safe condition.</li>
+      <li><strong>Manual override</strong>: a switch returns control to a person at any moment.</li>
+      <li><strong>Industrial machinery</strong>: moving machines can injure people, so safety rules and protective devices are required.</li>
+    </ul>
+    <p>
+      <em>This article is educational and is not a substitute for professional
+      training.</em>
+    </p>
+
+    <h2 id="study">Study approach</h2>
+    <p>
+      A small complete loop teaches more than a large unfinished system, so a
+      practical sequence is:
+    </p>
+    <ol>
+      <li>Learn the basics of <a href="electronics.html">electronics</a>, including voltage, current and resistance.</li>
+      <li>Build a small sense, decide and act project, such as a sensor that switches an LED or a relay.</li>
+      <li>Write the controller's <a href="programming.html">program</a> with simple rules, such as switching a fan on when the temperature is above the target.</li>
+      <li>Add feedback, a manual override and a safe state, and only then extend the system to larger devices.</li>
+    </ol>
+
+    <h2 id="see-also">See also</h2>
+    <ul>
+      <li><a href="index.html">Technology</a>: category overview.</li>
+      <li><a href="electronics.html">Electronics</a>: the circuits, sensors and relays that automation relies on.</li>
+      <li><a href="programming.html">Programming</a>: the logic that runs in a controller.</li>
+      <li><a href="robotics.html" class="new">Robotics</a>: machines that sense their environment and act on it.</li>
+    </ul>
+
+    <h2 id="references">References</h2>
+    <ol class="references">
+      <li id="ref1"><a href="https://en.wikipedia.org/wiki/Automation" rel="noopener">Automation</a>. Wikipedia.</li>
+      <li id="ref2"><a href="https://en.wikipedia.org/wiki/Control_loop" rel="noopener">Control loop</a>. Wikipedia.</li>
+      <li id="ref3"><a href="https://en.wikipedia.org/wiki/Sensor" rel="noopener">Sensor</a>. Wikipedia.</li>
+      <li id="ref4"><a href="https://en.wikipedia.org/wiki/Programmable_logic_controller" rel="noopener">Programmable logic controller</a>. Wikipedia.</li>
+      <li id="ref5"><a href="https://en.wikipedia.org/wiki/Actuator" rel="noopener">Actuator</a>. Wikipedia.</li>
+      <li id="ref6"><a href="https://en.wikipedia.org/wiki/Home_automation" rel="noopener">Home automation</a>. Wikipedia.</li>
+      <li id="ref7"><a href="https://en.wikipedia.org/wiki/Industrial_automation" rel="noopener">Industrial automation</a>. Wikipedia.</li>
+    </ol>
