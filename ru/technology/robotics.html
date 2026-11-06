@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Робототехника</title>
+  <meta name="description" content="Обзор робототехники: основные компоненты робота, распространённые типы, безопасная практика и практический подход к созданию первого робота.">
+  <link rel="alternate" hreflang="en" href="../../en/technology/robotics.html">
+  <link rel="alternate" hreflang="ru" href="robotics.html">
+  <link rel="alternate" hreflang="x-default" href="../../en/technology/robotics.html">
+  <link rel="stylesheet" href="../../css/style.css">
+</head>
+<body>
+
+  <header id="site-header"><a href="../index.html" class="site-title">My Wiki</a><nav aria-label="Основная навигация"><ul><li><a href="../index.html">Заглавная страница</a></li><li><a href="../music/index.html">Музыка</a></li><li><a href="../chess/index.html">Шахматы</a></li><li><a href="../sports/index.html">Спорт</a></li><li><a href="../technology/index.html">Технологии</a></li><li><a href="../finance/index.html">Финансы</a></li><li><a href="../accounting/index.html">Бухгалтерский учёт</a></li><li><a href="../languages/index.html">Языки</a></li></ul></nav><nav aria-label="Язык"><ul class="lang-switcher"><li><a href="../../en/technology/robotics.html" hreflang="en" lang="en">English</a></li><li><span aria-current="true" lang="ru">Русский</span></li></ul></nav></header>
+
+  <main>
+    <h1>Робототехника</h1>
+    <p class="hatnote">Эта статья входит в категорию <a href="index.html">Технологии</a>.</p>
+
+    <table class="infobox">
+      <caption>Робототехника</caption>
+      <tr><th scope="row">Категория</th><td>Аппаратное обеспечение и системы</td></tr>
+      <tr><th scope="row">Основной фокус</th><td>Машины, которые воспринимают, решают и действуют</td></tr>
+      <tr><th scope="row">Основные компоненты</th><td>Датчики, контроллер, исполнительные устройства, источник питания, конструкция</td></tr>
+      <tr><th scope="row">Дисциплины</th><td>Механика, электроника, программирование</td></tr>
+      <tr><th scope="row">Связанные темы</th><td><a href="automation.html">Автоматизация</a>, <a href="electronics.html">электроника</a>, <a href="programming.html">программирование</a></td></tr>
+    </table>
+
+    <p>
+      <strong>Робототехника</strong> — область, занимающаяся проектированием,
+      созданием и программированием роботов — машин, которые воспринимают
+      окружающую среду и действуют в ней.<sup><a href="#ref1">[1]</a></sup><sup><a href="#ref2">[2]</a></sup>
+      В этой энциклопедии под предметом понимается практическая робототехника,
+      которая сочетает механику, <a href="electronics.html">электронику</a> и
+      <a href="programming.html">программирование</a>. Она распространяет
+      <a href="automation.html">автоматизацию</a> на машины, которые движутся —
+      целиком или с помощью манипуляторов и инструментов.
+    </p>
+
+    <nav class="toc" aria-labelledby="toc-title">
+      <h2 id="toc-title">Содержание</h2>
+      <ol>
+        <li><a href="#parts">Основные компоненты</a></li>
+        <li><a href="#types">Типы роботов</a></li>
+        <li><a href="#safety">Безопасность</a></li>
+        <li><a href="#study">Подход к изучению</a></li>
+        <li><a href="#see-also">См. также</a></li>
+        <li><a href="#references">Примечания</a></li>
+      </ol>
+    </nav>
+
+    <h2 id="parts">Основные компоненты</h2>
+    <div class="table-wrap">
+      <table class="wikitable">
+        <caption>Основные компоненты робота</caption>
+        <thead>
+          <tr><th scope="col">Компонент</th><th scope="col">Роль</th><th scope="col">Пример</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Датчики</td><td>Измеряют окружающую среду или состояние самого робота</td><td>Датчик расстояния, камера или энкодер<sup><a href="#ref3">[3]</a></sup></td></tr>
+          <tr><td>Контроллер</td><td>Выполняет программу, которая решает, что делать</td><td>Микроконтроллер или небольшой компьютер</td></tr>
+          <tr><td>Исполнительные устройства</td><td>Создают движение</td><td>Сервопривод<sup><a href="#ref4">[4]</a></sup> или шаговый двигатель<sup><a href="#ref5">[5]</a></sup></td></tr>
+          <tr><td>Источник питания</td><td>Обеспечивает электрической энергией</td><td>Аккумуляторная батарея</td></tr>
+          <tr><td>Конструкция</td><td>Удерживает детали вместе и передаёт движение</td><td>Рама, колёса, шарниры и шестерни</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>
+      Робот повторяет тот же цикл «воспринять — решить — действовать», что и
+      любой контур управления в автоматизации, но его исполнительные устройства
+      перемещают саму машину или её инструменты. Робот, который измеряет
+      вращение своих колёс энкодером и корректирует скорость, использует
+      обратную связь.
+    </p>
+
+    <h2 id="types">Типы роботов</h2>
+    <div class="table-wrap">
+      <table class="wikitable">
+        <caption>Распространённые типы роботов</caption>
+        <thead>
+          <tr><th scope="col">Тип</th><th scope="col">Описание</th><th scope="col">Пример</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Промышленный робот-манипулятор<sup><a href="#ref6">[6]</a></sup></td><td>Стационарная шарнирная рука, которая повторяет точные операции</td><td>Сварка или сборка деталей на производственной линии</td></tr>
+          <tr><td>Мобильный робот<sup><a href="#ref7">[7]</a></sup></td><td>Робот, который перемещается в окружающей среде на колёсах, гусеницах или ногах</td><td>Складской транспортный робот или робот-пылесос</td></tr>
+          <tr><td>Учебный робот</td><td>Небольшой недорогой робот для обучения</td><td>Колёсный робот, который едет по линии или объезжает препятствия</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2 id="safety">Безопасность</h2>
+    <p>
+      Робот — это машина с движущимися частями и источником энергии, поэтому его
+      создание связано с рисками. Безопасная практика включает:
+    </p>
+    <ul>
+      <li><strong>Движущиеся части</strong>: двигатели, шестерни и колёса могут прищемить пальцы или причинить травму, поэтому руки и одежду держат вдали от робота, пока он под напряжением.</li>
+      <li><strong>Отключать питание</strong>: батарею отсоединяют перед изменением проводки.</li>
+      <li><strong>Аккумуляторы</strong>: литиевые аккумуляторы могут перегреться или воспламениться при коротком замыкании или перезаряде, поэтому используют только подходящее зарядное устройство.</li>
+      <li><strong>Безопасное тестирование</strong>: новую программу сначала проверяют с колёсами, приподнятыми над поверхностью, чтобы ошибка не отправила робота через весь стол.</li>
+      <li><strong>Крупные роботы</strong>: более мощные двигатели могут причинить серьёзную травму, поэтому необходимы безопасное расстояние и аварийная остановка.</li>
+    </ul>
+    <p>
+      <em>Эта статья носит образовательный характер и не заменяет
+      профессионального обучения.</em>
+    </p>
+
+    <h2 id="study">Подход к изучению</h2>
+    <p>
+      Небольшой работающий робот учит большему, чем сложный незавершённый,
+      поэтому практическая последовательность такова:
+    </p>
+    <ol>
+      <li>Изучить основы <a href="electronics.html">электроники</a> и <a href="programming.html">программирования</a>.</li>
+      <li>Собрать небольшого колёсного робота с двумя двигателями, контроллером и датчиком расстояния.</li>
+      <li>Написать программу с простыми правилами, например поворачивать, когда датчик обнаруживает препятствие ближе заданного расстояния.</li>
+      <li>Добавить обратную связь, например энкодеры колёс, и шаг за шагом улучшать поведение.</li>
+    </ol>
+
+    <h2 id="see-also">См. также</h2>
+    <ul>
+      <li><a href="index.html">Технологии</a>: обзор категории.</li>
+      <li><a href="automation.html">Автоматизация</a>: контур управления, который используют роботы.</li>
+      <li><a href="electronics.html">Электроника</a>: схемы, двигатели и датчики, из которых строятся роботы.</li>
+      <li><a href="programming.html">Программирование</a>: логика, которая выполняется в контроллере.</li>
+    </ul>
+
+    <h2 id="references">Примечания</h2>
+    <ol class="references">
+      <li id="ref1"><a href="https://en.wikipedia.org/wiki/Robotics" rel="noopener" lang="en">Robotics</a>. Wikipedia (на английском языке).</li>
+      <li id="ref2"><a href="https://en.wikipedia.org/wiki/Robot" rel="noopener" lang="en">Robot</a>. Wikipedia (на английском языке).</li>
+      <li id="ref3"><a href="https://en.wikipedia.org/wiki/Rotary_encoder" rel="noopener" lang="en">Rotary encoder</a>. Wikipedia (на английском языке).</li>
+      <li id="ref4"><a href="https://en.wikipedia.org/wiki/Servomotor" rel="noopener" lang="en">Servomotor</a>. Wikipedia (на английском языке).</li>
+      <li id="ref5"><a href="https://en.wikipedia.org/wiki/Stepper_motor" rel="noopener" lang="en">Stepper motor</a>. Wikipedia (на английском языке).</li>
+      <li id="ref6"><a href="https://en.wikipedia.org/wiki/Industrial_robot" rel="noopener" lang="en">Industrial robot</a>. Wikipedia (на английском языке).</li>
+      <li id="ref7"><a href="https://en.wikipedia.org/wiki/Mobile_robot" rel="noopener" lang="en">Mobile robot</a>. Wikipedia (на английском языке).</li>
+    </ol>
+  </main>
+
+  <footer id="site-footer"><p>Содержимое поддерживается автором. Последнее обновление: октябрь 2026.</p></footer>
+
+</body>
+</html>
