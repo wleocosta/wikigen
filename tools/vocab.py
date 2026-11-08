@@ -9,6 +9,9 @@ Run it from the project root:
     python tools/vocab.py search TEXT [--limit 20]
     python tools/vocab.py list [--topic TOPIC] [--limit 30]
     python tools/vocab.py stats
+    python tools/vocab.py topics [--limit 500]
+    python tools/vocab.py clean [--apply] [--samples 3]
+    python tools/vocab.py retopic MAP.tsv [--apply]
     python tools/vocab.py export FILE.tsv [--table vocabulary|pattern] [--header]
     python tools/vocab.py pattern-add [--lang en]
     python tools/vocab.py pattern-list [--priority 1|2|3] [--limit 30]
@@ -22,6 +25,7 @@ TSV columns (vocabulary, the same order as your lesson files):
 import argparse
 import csv
 import os
+import re
 import sqlite3
 import sys
 from pathlib import Path
@@ -34,6 +38,12 @@ VOCAB_FIELDS = ["step", "topic", "term", "definition_en", "translation_pt",
                 "sentence_used", "matched", "note"]
 PATTERN_FIELDS = ["pattern", "function", "example", "translation_pt",
                   "priority", "topic", "note"]
+
+# Fragments of table markup (<tr>...</tr>) that were copied into the text columns.
+TABLE_ROW = re.compile(r"\s*<tr\b[^>]*>.*?</tr\s*>\s*", re.IGNORECASE | re.DOTALL)
+TABLE_LEFTOVER = re.compile(r"</?t[rdh]\b", re.IGNORECASE)
+ANY_TAG = re.compile(r"</?[A-Za-z][A-Za-z0-9]*(?:\s[^<>]*)?/?>")
+CLEAN_COLUMNS = ["topic", "definition_en", "translation_pt", "sentence_used", "note"]
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS vocabulary (
@@ -295,6 +305,146 @@ def cmd_stats(args):
     return 0
 
 
+def cmd_topics(args):
+    conn = connect(args.db)
+    rows = conn.execute(
+        "SELECT COALESCE(NULLIF(topic, ''), '(no topic)') AS t, COUNT(*) AS n"
+        " FROM vocabulary GROUP BY t ORDER BY n DESC, t").fetchall()
+    total = conn.execute("SELECT COUNT(*) FROM vocabulary").fetchone()[0]
+    conn.close()
+    print("%d distinct topics, %d entries" % (len(rows), total))
+    for row in rows[:args.limit]:
+        print("%4d  %s" % (row["n"], row["t"]))
+    return 0
+
+
+def snippet(text, width=110):
+    text = clean(text)
+    return text if len(text) <= width else text[:width - 3] + "..."
+
+
+def cmd_clean(args):
+    """Remove pasted table-row markup from the text columns (preview unless --apply)."""
+    conn = connect(args.db)
+    rows = conn.execute("SELECT * FROM vocabulary ORDER BY id").fetchall()
+    per_column = {name: 0 for name in CLEAN_COLUMNS}
+    updates, samples, leftovers, other = [], [], [], []
+
+    for row in rows:
+        new = {}
+        for name in CLEAN_COLUMNS:
+            old = row[name] or ""
+            if "<" not in old:
+                continue
+            fixed = clean(TABLE_ROW.sub(" ", old))
+            if fixed != clean(old):
+                new[name] = fixed
+                per_column[name] += 1
+                if len(samples) < args.samples:
+                    samples.append((row["term"], name, old, fixed))
+            if TABLE_LEFTOVER.search(fixed):
+                leftovers.append((row["term"], name, fixed))
+            elif ANY_TAG.search(fixed):
+                other.append((row["term"], name, fixed))
+        if new:
+            updates.append((row["id"], new))
+
+    print("Entries with table-row markup in the text columns: %d" % len(updates))
+    for name in CLEAN_COLUMNS:
+        print("  %-15s %d" % (name, per_column[name]))
+    for term, name, old, fixed in samples:
+        print("--- %s (%s)" % (term, name))
+        print("  before: %s" % snippet(old))
+        print("  after:  %s" % (snippet(fixed) if fixed else "(empty)"))
+    print("Unbalanced table markup left after cleaning: %d" % len(leftovers))
+    for term, name, text in leftovers[:5]:
+        print("    %s (%s): %s" % (term, name, snippet(text, 90)))
+    print("Other HTML tags found (left untouched): %d" % len(other))
+    for term, name, text in other[:5]:
+        print("    %s (%s): %s" % (term, name, snippet(text, 90)))
+
+    if not args.apply:
+        print("Preview only, nothing changed. Run again with --apply to save the cleanup.")
+        conn.close()
+        return 0
+    for row_id, new in updates:
+        assignments = ", ".join("%s = ?" % name for name in new)
+        conn.execute("UPDATE vocabulary SET %s WHERE id = ?" % assignments,
+                     list(new.values()) + [row_id])
+    conn.commit()
+    conn.close()
+    print("Cleanup saved: %d entries updated." % len(updates))
+    return 0
+
+
+def read_topic_map(path):
+    """Read a map file: one 'old topic <TAB> new topic' pair per line.
+
+    Lines that start with # and a header line (old, new) are ignored.
+    """
+    mapping, problems = {}, []
+    for number, row in read_rows(path):
+        row = [clean(cell) for cell in row]
+        if row[0].startswith("#"):
+            continue
+        if len(row) < 2 or not row[0] or not row[1]:
+            problems.append("line %d: needs two columns (old topic, new topic)" % number)
+            continue
+        if row[0].lower() == "old" and row[1].lower() == "new":
+            continue
+        key = row[0].lower()
+        if key in mapping and mapping[key][1] != row[1]:
+            problems.append("line %d: '%s' is mapped twice with different results" % (number, row[0]))
+            continue
+        mapping[key] = (row[0], row[1])
+    return mapping, problems
+
+
+def cmd_retopic(args):
+    """Rename topics with a map file (preview unless --apply)."""
+    mapping, problems = read_topic_map(args.file)
+    if problems:
+        for message in problems:
+            print("Problem in the map file: " + message)
+        return 1
+    conn = connect(args.db)
+    current = {row["topic"]: row["n"] for row in conn.execute(
+        "SELECT topic, COUNT(*) AS n FROM vocabulary WHERE topic IS NOT NULL AND topic != ''"
+        " GROUP BY topic")}
+    renames, result, untouched = [], {}, []
+    for topic, count in current.items():
+        target = mapping.get(topic.lower(), (None, None))[1]
+        if target and target != topic:
+            renames.append((topic, target, count))
+            result[target] = result.get(target, 0) + count
+        else:
+            if not target:
+                untouched.append(topic)
+            result[topic] = result.get(topic, 0) + count
+    unused = [old for key, (old, new) in mapping.items()
+              if key not in {t.lower() for t in current}]
+
+    moved = sum(count for _, _, count in renames)
+    print("Topics in the database: %d | map entries: %d" % (len(current), len(mapping)))
+    print("Entries that would change topic: %d (from %d old topics)" % (moved, len(renames)))
+    print("Topics after the change: %d" % len(result))
+    for topic, count in sorted(result.items(), key=lambda item: (-item[1], item[0])):
+        print("  %4d  %s" % (count, topic))
+    print("Topics not in the map, left as they are (%d): %s" % (len(untouched), ", ".join(sorted(untouched)) or "-"))
+    print("Map entries that match no topic in the database (%d): %s" % (len(unused), ", ".join(unused) or "-"))
+
+    if not args.apply:
+        print("Preview only, nothing changed. Run again with --apply to save the new topics.")
+        conn.close()
+        return 0
+    for old, new, _ in renames:
+        conn.execute("UPDATE vocabulary SET topic = ? WHERE topic = ?", (new, old))
+    conn.commit()
+    conn.close()
+    print("Topics saved: %d entries updated." % moved)
+    return 0
+
+
 def cmd_export(args):
     conn = connect(args.db)
     if args.table == "pattern":
@@ -395,6 +545,20 @@ def build_parser():
 
     p = sub.add_parser("stats", help="show counts")
     p.set_defaults(func=cmd_stats)
+
+    p = sub.add_parser("topics", help="list every topic with its number of entries")
+    p.add_argument("--limit", type=int, default=500)
+    p.set_defaults(func=cmd_topics)
+
+    p = sub.add_parser("clean", help="remove pasted table-row markup (preview unless --apply)")
+    p.add_argument("--apply", action="store_true", help="save the cleanup")
+    p.add_argument("--samples", type=int, default=3, help="before/after examples to show")
+    p.set_defaults(func=cmd_clean)
+
+    p = sub.add_parser("retopic", help="rename topics with a map file (preview unless --apply)")
+    p.add_argument("file", help="TSV file: old topic, new topic")
+    p.add_argument("--apply", action="store_true", help="save the new topics")
+    p.set_defaults(func=cmd_retopic)
 
     p = sub.add_parser("export", help="write a TSV file")
     p.add_argument("file")
