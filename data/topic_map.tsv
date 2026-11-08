@@ -1,0 +1,63 @@
+# Topic map for tools/vocab.py: old topic <TAB> new topic.
+# Lines that start with # are ignored. Edit the right-hand column to change a result.
+old	new
+GitHub setup	Git
+i18n & Git	Git
+Terminal	Tooling
+add-lang and status	Tooling
+new-page and import commands	Tooling
+TSV file creation	Tooling
+Vocabulary file update	Tooling
+Vocabulary layout change	Tooling
+Project workflow	Project management
+Workflow	Project management
+Replay plan	Project management
+Shared header and footer	Web development
+Replay: global stylesheet	Web development
+Replay: HTML skeleton	Web development
+Layer 1: Main Page	Web development
+Layer 1: 404 page	Web development
+Main Page stub fix	Web development
+Bridge: shared layout	Web development
+Site architecture	Web development
+Layer 2: Remaining hubs	Web development
+Reference verified	Quality assurance
+References	Quality assurance
+Layer 3: Quality pass	Quality assurance
+Third person explained	Writing
+Third person clarification	Writing
+Practice notes: third person	Writing
+Layer 2: Music hub	Music
+Layer 3: Bass guitar article	Music
+Ghost note technique	Music
+Ghost note lead	Music
+Practice notes review: routine	Music
+Practice notes review: objectives	Music
+Layer 2: Chess hub	Chess
+Layer 3: Chess openings article	Chess
+Layer 3: Chess strategy article	Chess
+Layer 3: Chess tactics article	Chess
+Layer 2: Sports hub	Sports
+Layer 2: Finance hub	Finance
+Layer 3: Fixed income article	Finance
+Layer 3: Variable income article	Finance
+Layer 2: Accounting hub	Accounting
+Layer 3: Auditing article	Accounting
+Layer 3: Financial accounting article	Accounting
+Layer 3: Public sector accounting article	Accounting
+Layer 2: Technology hub	Technology
+Languages	Language learning
+Layer 2: Languages hub	Language learning
+i18n	Localization
+Chinese	Localization
+French	Localization
+German	Localization
+Greek	Localization
+Hebrew	Localization
+Italian	Localization
+Japanese	Localization
+Korean	Localization
+Russian	Localization
+Spanish	Localization
+Framework and language order	Localization
+Language switcher	Localization
