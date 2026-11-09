@@ -12,6 +12,7 @@ Run it from the project root:
     python tools/vocab.py topics [--limit 500]
     python tools/vocab.py clean [--apply] [--samples 3]
     python tools/vocab.py retopic MAP.tsv [--apply]
+    python tools/vocab.py pages [--out FILE] [--examples 2]
     python tools/vocab.py export FILE.tsv [--table vocabulary|pattern] [--header]
     python tools/vocab.py pattern-add [--lang en]
     python tools/vocab.py pattern-list [--priority 1|2|3] [--limit 30]
@@ -24,6 +25,7 @@ TSV columns (vocabulary, the same order as your lesson files):
 """
 import argparse
 import csv
+import html
 import os
 import re
 import sqlite3
@@ -445,6 +447,105 @@ def cmd_retopic(args):
     return 0
 
 
+def slugify(text):
+    slug = re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
+    return slug or "topic"
+
+
+def cmd_pages(args):
+    """Generate the Vocabulary article (an ordinary content file) from the database."""
+    conn = connect(args.db)
+    rows = conn.execute(
+        "SELECT * FROM vocabulary WHERE lang = ?"
+        " ORDER BY topic COLLATE NOCASE, term COLLATE NOCASE", (args.lang,)).fetchall()
+    conn.close()
+    if not rows:
+        print("The database has no vocabulary entries for language '%s'." % args.lang)
+        return 1
+
+    esc = html.escape
+    groups = {}
+    for row in rows:
+        groups.setdefault(row["topic"] or "Other", []).append(row)
+    names = sorted(groups, key=str.lower)
+
+    title = "Vocabulary"
+    description = ("Personal English vocabulary: terms with definitions, Portuguese "
+                   "translations and example sentences, grouped by topic.")
+    if len(description) > 160:
+        print("Warning: the description has %d characters (limit 160)." % len(description))
+
+    out = []
+    out.append("title: %s" % title)
+    out.append("description: %s" % description)
+    out.append("---")
+    out.append("    <h1>%s</h1>" % title)
+    out.append('    <p class="hatnote">This article is part of the <a href="index.html">Languages</a> category.</p>')
+    out.append("")
+    out.append('    <table class="infobox">')
+    out.append("      <caption>Vocabulary</caption>")
+    out.append('      <tr><th scope="row">Category</th><td>Language learning</td></tr>')
+    out.append('      <tr><th scope="row">Entries</th><td>%d</td></tr>' % len(rows))
+    out.append('      <tr><th scope="row">Topics</th><td>%d</td></tr>' % len(names))
+    out.append('      <tr><th scope="row">Languages</th><td>English, with Portuguese translations</td></tr>')
+    out.append('      <tr><th scope="row">Related</th><td><a href="index.html">Languages</a></td></tr>')
+    out.append("    </table>")
+    out.append("")
+    out.append("    <p>")
+    out.append("      <strong>Vocabulary</strong> is the set of words and expressions that a")
+    out.append("      person knows and can use. This page lists the English terms studied while")
+    out.append("      building this encyclopedia. Each entry gives a definition, a Portuguese")
+    out.append("      translation and an example sentence, and the terms are grouped by topic.")
+    out.append("      Learning first the terms that appear most often gives the greatest return")
+    out.append("      for the time spent.")
+    out.append("    </p>")
+    out.append("")
+    out.append('    <nav class="toc" aria-labelledby="toc-title">')
+    out.append('      <h2 id="toc-title">Contents</h2>')
+    out.append("      <ol>")
+    for name in names:
+        out.append('        <li><a href="#%s">%s</a> (%d)</li>' % (slugify(name), esc(name), len(groups[name])))
+    out.append('        <li><a href="#see-also">See also</a></li>')
+    out.append("      </ol>")
+    out.append("    </nav>")
+
+    for name in names:
+        out.append("")
+        out.append('    <h2 id="%s">%s</h2>' % (slugify(name), esc(name)))
+        out.append('    <div class="table-wrap">')
+        out.append('      <table class="wikitable">')
+        out.append("        <caption>%s: %d entries</caption>" % (esc(name), len(groups[name])))
+        out.append("        <thead>")
+        out.append('          <tr><th scope="col">Term</th><th scope="col">Portuguese</th>'
+                   '<th scope="col">Definition</th><th scope="col">Example</th></tr>')
+        out.append("        </thead>")
+        out.append("        <tbody>")
+        for row in groups[name]:
+            examples = [e.strip() for e in (row["sentence_used"] or "").split(" | ") if e.strip()]
+            example_html = "<br>".join(esc(e) for e in examples[:args.examples]) or "\u2014"
+            out.append(
+                '          <tr><td><strong>%s</strong></td><td lang="pt">%s</td><td>%s</td><td>%s</td></tr>'
+                % (esc(row["term"]), esc(row["translation_pt"] or "\u2014"),
+                   esc(row["definition_en"] or "\u2014"), example_html))
+        out.append("        </tbody>")
+        out.append("      </table>")
+        out.append("    </div>")
+
+    out.append("")
+    out.append('    <h2 id="see-also">See also</h2>')
+    out.append("    <ul>")
+    out.append('      <li><a href="index.html">Languages</a>: category overview.</li>')
+    out.append("    </ul>")
+
+    target = Path(args.out) if args.out else ROOT / "content" / args.lang / "languages" / "vocabulary.html"
+    target.parent.mkdir(parents=True, exist_ok=True)
+    with open(target, "w", encoding="utf-8", newline="") as handle:
+        handle.write("\n".join(out) + "\n")
+    size = target.stat().st_size
+    print("Wrote %d entries in %d topics to %s (%d KB)" % (len(rows), len(names), target, (size + 1023) // 1024))
+    return 0
+
+
 def cmd_export(args):
     conn = connect(args.db)
     if args.table == "pattern":
@@ -559,6 +660,12 @@ def build_parser():
     p.add_argument("file", help="TSV file: old topic, new topic")
     p.add_argument("--apply", action="store_true", help="save the new topics")
     p.set_defaults(func=cmd_retopic)
+
+    p = sub.add_parser("pages", help="generate the Vocabulary article from the database")
+    p.add_argument("--lang", default="en")
+    p.add_argument("--out", help="output file (default: content/en/languages/vocabulary.html)")
+    p.add_argument("--examples", type=int, default=2, help="example sentences per entry")
+    p.set_defaults(func=cmd_pages)
 
     p = sub.add_parser("export", help="write a TSV file")
     p.add_argument("file")
