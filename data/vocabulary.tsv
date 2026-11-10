@@ -88,8 +88,8 @@
 19	Localization	Mirror (verb)	To reproduce something in reversed form, as in a right-to-left layout	Espelhar	Fix 3: nothing to do. The menu, the flex layout, the dropdown (inset-inline-end) and the lists already mirror correctly, because we used logical properties or default behavior. | The Russian hub mirrors the structure of the English hub.	exact	Sentence is from step 26.
 20	Web development	Source of truth	The one original place where data is maintained	Fonte da verdade (origem principal)	Table row: content/, templates/, i18n/, site.json, css/ | Source of truth | Yes (edit them) | The SQLite file is the source of truth.	table	Appears only as a table label.
 20	Web development	Generated	Produced automatically by a program	Gerado	Table row: dist/ | Generated output | Never edit; it is recreated on every build | The generated Russian music hub appears as an untracked folder. | The generated pages are committed in the second commit.	table	"Appears as a table label (""Generated output"")."
-20	Web development	Overwrite	To replace existing data with new data	Sobrescrever	If you pasted the real content into a file inside dist/ (or the import ran while the placeholder was still in content/en/index.html), the next build overwrote it with the stub. | Generated files never mix with your hand-written pages. | The build in Step 5 overwrites the report.	form	Past tense: overwrote.
-20	Web development	Regenerate	To produce something again from its source	Regenerar	build deletes the whole dist/ folder and regenerates it from content/, templates/ and i18n/ every time.	form	Third person: regenerates.
+20	Web development	Overwrite	To replace existing data with new data	Sobrescrever	If you pasted the real content into a file inside dist/ (or the import ran while the placeholder was still in content/en/index.html), the next build overwrote it with the stub. | Generated files never mix with your hand-written pages. | The build in Step 5 overwrites the report. | The next generation overwrites the old file.	form	Past tense: overwrote.
+20	Web development	Regenerate	To produce something again from its source	Regenerar	build deletes the whole dist/ folder and regenerates it from content/, templates/ and i18n/ every time. | The Vocabulary page is regenerated from the database.	form	Third person: regenerates.
 21	Localization	Cognate	A word with a common origin in two languages	Cognato (palavra de origem comum)		concept	Word not used. Nearest sentence: As a Portuguese speaker you will recognize most words (conoscenza, strategia, robotica), which makes this a good reading exercise.
 21	Localization	Terminology	The set of specialized terms used in a field	Terminologia	I will use official Brazilian terms rather than literal translations. | The Russian terminology needs care in the accounting hub.	none	Listed in the vocabulary table but not used in my text.
 21	Localization	Glossary	An alphabetical list of terms with their meanings	Glossário	Later we will keep a small glossary file for this, which also becomes a study list for you. | The Portuguese page doubles as a glossary of official terms.	exact	
@@ -155,7 +155,7 @@
 34	Tooling	Layout	The way elements are arranged or formatted	Layout / disposição	From now on, each reply ends with the vocabulary in the same layout as the TSV columns.	exact	
 34	Tooling	Append	To add something at the end of existing content	Anexar / acrescentar ao final	The three new terms are appended to the file as step 33, and this reply's terms as step 34. | Append the ending to the Russian technology hub.	form	Past participle: appended.
 34	Tooling	Cumulative	Growing by the addition of successive items	Cumulativo / acumulado	The file is cumulative: it keeps every earlier row and adds the new ones at the end. | The glossary is cumulative, growing with each language.	exact	
-34	Tooling	Header row	The first row of a table, naming each column	Linha de cabeçalho	The header row and the earlier 151 rows are unchanged. | If your sheet has a header row, that is fine.	exact	
+34	Tooling	Header row	The first row of a table, naming each column	Linha de cabeçalho	The header row and the earlier 151 rows are unchanged. | If your sheet has a header row, that is fine.	exact	Russian: строка заголовков
 34	Tooling	Export	To save data in a file format that other programs can open	Exportar	If you ever want to export it as .xlsx for formatting or filters, I can do that too.	exact	
 35	Web development	To organise	To arrange items in a structured, orderly way	Organizar	Articles are organised into thematic categories and connected through internal hyperlinks.	form	UK spelling; US: organize. Past participle: organised.
 35	Web development	To maintain	To keep something in good condition or up to date	Manter	Content is maintained by the author.	form	Past participle: maintained.
@@ -249,7 +249,7 @@
 59	Git	Alias	A short custom name that stands for a longer command.	Apelido (atalho de comando)	"`git config --global alias.l ""log --oneline -n 8""`"	exact	After that, `git l` shows the last 8 commits.
 59	Project management	Permanent	Lasting indefinitely; not temporary.	Permanente	Permanent fix (run once).	exact	`--global` makes the setting permanent for your user.
 60	Git	Stage	To mark changes to be included in the next commit.	Preparar (adicionar à área de preparação)	`git add` only stages the files; nothing enters the history yet. | A single `git add .` would stage the whole virtual environment.	exact	"Noun: ""staging area"" (área de preparação)."
-60	Git	Reversible	Able to be undone or turned back.	Reversível	Each step before `git push` is reversible.	exact	Opposite: irreversible (irreversível).
+60	Git	Reversible	Able to be undone or turned back.	Reversível	Each step before `git push` is reversible. | Everything is reversible.	exact	Opposite: irreversible (irreversível).
 61	Quality assurance	Oversight	An unintentional failure to notice or do something.	Descuido (falha por omissão)	You are right that this was an oversight on my side.	exact	"Also means ""supervision"" (supervisão) in other contexts."
 61	Localization	Faithful	Accurately following the original, without adding or changing meaning.	Fiel	This version mirrors the English page and keeps parity with it.	related	"The word itself is in the heading ""faithful translation""; the sentence shown is the one explaining the idea."
 61	Localization	Parity	The state of being equal or equivalent.	Paridade	This version mirrors the English page and keeps parity with it (7 hubs). | Full parity between the English and Portuguese versions requires translating all 17 pages.	exact	In i18n: every language version has the same structure and content.
@@ -286,7 +286,7 @@
 70	Web development	Mixed	Made of different kinds of things combined together.	Misto	A mixed menu (some Portuguese, some English) would confuse visitors. | Two changes may now be mixed in your working tree.	exact	"In finance, ""mixed"" asset classes means a diversified portfolio."
 72	Git	Untracked	Not yet included in version control; Git does not follow its changes.	Não rastreado	`?? venv/` is untracked. | The two entries marked ?? are untracked files.	exact	Files become tracked after `git add` and a commit.
 72	Project management	Housekeeping	Routine maintenance work that keeps a system tidy and safe.	Manutenção de rotina (organização)	Housekeeping commit.	exact	"In accounting, ""housekeeping"" can also mean routine record-keeping tasks."
-72	Quality assurance	Harmless	Unable to cause damage or harm.	Inofensivo	The LF/CRLF warnings are harmless.	exact	Opposite: harmful (prejudicial).
+72	Quality assurance	Harmless	Unable to cause damage or harm.	Inofensivo	The LF/CRLF warnings are harmless. | They are harmless in the database.	exact	Opposite: harmful (prejudicial).
 73	Localization	Literal	Following the exact words of the original, without adapting the meaning.	Literal	I will use official Brazilian terms rather than literal translations.	exact	Opposite idea: idiomatic (idiomático) translation.
 73	Quality assurance	Official	Authorised or approved by a recognised authority.	Oficial	I will use official Brazilian terms rather than literal translations.	exact	In accounting: official standards such as CPC and NBC.
 73	Git	One-time	Happening only once and not repeated.	Pontual (única vez)	The warning is expected and happens only once.	related	"The reply says ""happens only once""; the compound adjective is ""one-time""."
@@ -300,7 +300,7 @@
 77	Programming	Dependency	A relationship in which one thing needs another to work.	Dependência	There is no circular dependency in this batch, because every link target already exists. | Accounting is the only Russian dependency left in the finance hub.	exact	In software, a library that a project needs is also called a dependency.
 77	Web development	Cross-link	A link between related pages inside the same site.	Link cruzado (referência cruzada)	Chess links to Music and Finance, Sports to Music and Technology, and Languages to Technology and Music.	related	"The reply describes the idea; the compound word ""cross-link"" is the term for it."
 77	Localization	Adapt	To change something so that it fits a new context or audience.	Adaptar	The example about the word *biblioteca* needs adaptation, not a literal translation. | If your columns are in a different order, I will adapt the tool.	related	"The reply uses the noun ""adaptation""; the verb is ""to adapt""."
-77	Quality assurance	Outdated	No longer current, accurate or useful.	Desatualizado	The note on the Main Page would become outdated, because all seven hubs now exist in Portuguese.	exact	"Synonym: obsolete (obsoleto); close to ""stale"" from step 66."
+77	Quality assurance	Outdated	No longer current, accurate or useful.	Desatualizado	The note on the Main Page would become outdated, because all seven hubs now exist in Portuguese. | If either count is 0, the tool is outdated.	exact	"Synonym: obsolete (obsoleto); close to ""stale"" from step 66."
 78	Project management	Intermediate	Located between two stages or states.	Intermediário	Intermediate states would break the checker, so everything goes into one commit with one purpose.	exact	"Also an English level: ""intermediate"" between beginner and advanced."
 78	Quality assurance	Safety net	A protection that catches errors before they cause damage.	Rede de segurança	The checker is also a safety net: it flags any page whose `data-root` is wrong, so a forgotten file cannot slip through.	exact	In accounting, internal controls act as a safety net.
 78	Programming	Obsolete	No longer used or needed because something better exists.	Obsoleto	The old comments in `layout.js` are obsolete, so I replace them.	exact	"Close to ""outdated"" from step 77; ""obsolete"" is stronger."
@@ -334,7 +334,7 @@
 87	Project management	Slice	A small, complete part of a larger piece of work.	Fatia (parte entregável)	This is the smallest useful slice of the generator.	exact	"Also used in ""vertical slice"" in software development."
 87	Programming	Strict	Following rules exactly, with no tolerance for mistakes.	Estrito (rigoroso)	The template engine is strict: a typo in a placeholder name stops the build instead of hiding the mistake.	exact	Opposite: lenient (tolerante).
 87	Writing	Verbatim	In exactly the same words; word for word.	Literalmente (palavra por palavra)	The `<main>` content is copied verbatim from your hand-written pages. | Infobox labels are not copied verbatim but translated by the glossary.	exact	Often used for quotes and for copied text.
-87	Programming	Normalise	To convert something to a single standard form.	Normalizar	Python also normalises line endings when it reads the files, and `build.py` always writes LF, so Windows does not add `CRLF` to the output.	exact	American spelling: normalize.
+87	Programming	Normalise	To convert something to a single standard form.	Normalizar	Python also normalises line endings when it reads the files, and `build.py` always writes LF, so Windows does not add `CRLF` to the output. | Topics will be normalised into a smaller set.	exact	American spelling: normalize.
 88	Git	Uncommitted	Changed in your files but not yet saved in a commit.	Não confirmado (sem commit)	**Lines starting with ` M` or `??` under the first line** are uncommitted changes: they exist in your files but not yet in a commit.	exact	Opposite: committed (confirmado).
 88	Git	Ahead	Having more commits than the remote copy.	À frente (com commits não enviados)	`[ahead 1]` means you have a commit that was never pushed.	exact	"The opposite state is ""behind"", when GitHub has commits you lack."
 88	Programming	Unsaved	Not yet written to disk.	Não salvo	If your editor shows unsaved files, save them first.	exact	Many editors mark unsaved files with a dot on the tab.
@@ -349,7 +349,7 @@
 90	Programming	Structural	Related to the basic way something is built or organised.	Estrutural	In generated pages, the menu comes from `site.json`, so a forgotten menu entry is a structural error that you fix in one place.	exact	Adverb: structurally.
 91	Git	Orphan	A file or record that has lost its connection to the thing it belongs to.	Órfão (sem vínculo)	The generator refuses to delete orphan files, meaning any file in those folders that it does not create.	exact	Also used in databases for records without a parent.
 91	Programming	Artifact	A file produced automatically by a build process.	Artefato (arquivo gerado)	From now on, the pages in `en/` and `pt/` are build artifacts: edit `content/` instead.	exact	"The reply says ""build artifacts""; in everyday English ""artefact"" can also mean a historic object."
-91	Git	Rollback	Returning a system to a previous, working state.	Reversão (voltar ao estado anterior)	A rollback is simple: **before** the commit, `git restore en pt` brings the hand-written pages back.	exact	In finance and databases, a transaction can also be rolled back.
+91	Git	Rollback	Returning a system to a previous, working state.	Reversão (voltar ao estado anterior)	A rollback is simple: **before** the commit, `git restore en pt` brings the hand-written pages back. | You can restore the committed data with a rollback.	exact	In finance and databases, a transaction can also be rolled back.
 91	Programming	Refuse	To say no to an action instead of carrying it out.	Recusar	If a `Refusing to publish` message appears, it lists the files that need a content file.	related	"The reply uses the form ""Refusing""; the verb is ""to refuse""."
 92	Quality assurance	Miscount	A mistake in counting.	Erro de contagem	My best explanation of the extra file is a miscount on my side, not a problem in your files.	exact	Verb: to miscount.
 92	Git	Tracked	Followed by Git: its changes are recorded in the history.	Rastreado	`tools/build.py` is also a tracked file, and saving the new version modifies it.	exact	Opposite: untracked (não rastreado), see step 72.
@@ -357,7 +357,7 @@
 93	Programming	Retire	To stop using something and remove it from a system.	Aposentar (desativar)	Cleanup after the switch.	related	"The reply says ""cleanup""; ""retire"" is the technical verb used earlier in the plan."
 93	Programming	Dead code	Code that still exists but is never executed.	Código morto	`js/layout.js` is dead code: it still exists, but no page loads it.	exact	Removing dead code makes projects easier to understand.
 93	Project management	In sync	Kept up to date and consistent with another thing.	Sincronizado	Is `en/` in sync with `content/`? | The local main branch is in sync with origin/main. | The main branch is in sync with origin/main.	exact	Opposite: out of sync (dessincronizado).
-93	Quality assurance	Leftover	Remaining after the rest has been removed or used.	Resquício (o que sobrou)	Check for leftover references before deleting anything.	exact	"Can also be a noun: ""leftovers"" (restos de comida)."
+93	Quality assurance	Leftover	Remaining after the rest has been removed or used.	Resquício (o que sobrou)	Check for leftover references before deleting anything. | The tool reports unbalanced markup that would remain as a leftover.	exact	"Can also be a noun: ""leftovers"" (restos de comida)."
 94	Programming	Register	To add something to an official list or system.	Registrar	`add-lang` registers a new language in one command.	exact	"In accounting, ""to register"" can also mean to record a transaction."
 94	Quality assurance	Throwaway	Made only for temporary use and then discarded.	Descartável (temporário)	Step 4: test the menu fallback with a throwaway file.	exact	"As a noun: ""a throwaway"" (um arquivo descartável)."
 94	Quality assurance	Byte-identical	Exactly the same, down to every character.	Idêntico byte a byte	If the refactor is correct, the published pages stay byte-identical.	exact	Used when comparing files or outputs.
@@ -469,7 +469,7 @@
 128	Writing	Overlook	To fail to notice something	deixar passar / não notar	I overlooked the length of the description.	no	"The reply says ""I never counted it""; overlook is the standard verb"
 129	Git	Stage (verb)	To mark changes so that they are included in the next commit	preparar (para commit)	The git add command stages the files for the next commit.	yes	"Reused idea from the earlier row ""Staged"""
 129	Git	Sweep (in)	To include everything within reach	incluir tudo / varrer	The git add -A command sweeps in everything that is uncommitted.	yes	"Informal phrasal verb: ""sweep up"""
-129	Git	Revert	To undo a commit by creating a new commit that reverses it	reverter	A single revert would undo both changes.	yes	Git command: git revert
+129	Git	Revert	To undo a commit by creating a new commit that reverses it	reverter	A single revert would undo both changes. | The command reverted the database to its committed version.	yes	Git command: git revert
 129	Git	Scope (of a commit)	The set of changes a commit covers	escopo	Adding by path keeps the scope of each commit small.	no	"The reply says ""keeps the calisthenics files out of this commit"""
 130	Git	Ahead (of the remote)	Having local commits that are not yet on the remote repository	à frente (do remoto)	The status must show no ahead after the push.	yes	"Shown as ""ahead 1"" in git status -sb"
 130	Git	Cross-check	To verify information by comparing it with another source	conferir / verificar por comparação	The number of external links is a cross-check for the new article.	yes	The expected 59 equals 52 plus seven
@@ -585,3 +585,47 @@
 155	Tooling	Export (verb)	To save data from a program into a file	exportar	In Google Sheets, you export the current tab as a TSV file.	yes	Russian: экспортировать
 155	Tooling	Tab (sheet)	One page inside a spreadsheet file	aba (planilha)	Only the current tab is downloaded.	yes	Russian: лист
 155	Tooling	Quoted (cell)	Wrapped in quotation marks in an exported file	entre aspas	Google Sheets wraps cells in double quotes when they contain quotation marks.	no	"The sentence says ""wraps cells in double quotes"""
+	Process	Redo	To do something again	refazer	Yes, you can redo the steps without any problem.	yes	Russian: переделать
+	Process	Clean slate	A fresh start with nothing carried over from before	começar do zero	We start from a clean slate.	yes	Russian: чистый лист
+	Process	Version (of a file)	One form of a file at a particular time	versão	The two counts show whether the tool is the new version.	yes	Russian: версия
+	Process	Mix-up	A mistake in which one thing is confused with another	confusão / troca	The mix-up may have affected more than the data file.	yes	Russian: путаница
+	Tooling	Fragment	A small piece of something larger	fragmento	Some notes contain HTML fragments that were copied into the sheet.	yes	Russian: фрагмент
+	Tooling	Embedded	Placed inside something else	incorporado	The notes have table markup embedded in the text.	no	"The reply says ""end with a piece of table markup"""
+	Tooling	Strip (remove)	To take away an outer layer or unwanted part	remover	The cleanup command will strip these fragments.	no	"The reply says ""remove""; strip is the technical verb"
+	Tooling	Preview	A view of the result before it is saved	prévia	The default is a preview, and --apply saves the change.	yes	Russian: предварительный просмотр
+	Tooling	Untouched	Not changed in any way	intocado	The term column is never touched.	no	"The reply says ""never touched""; untouched is the adjective"
+	Tooling	Truncated	Cut short so that the end is missing	truncado	It reports truncated table markup but does not remove it.	yes	Reused term, see earlier TSV row
+	Tooling	Legitimate	Valid and correct, not an error	legítimo	It leaves legitimate tags alone.	yes	Russian: допустимый
+	Tooling	Judgment	An opinion formed after weighing the facts	julgamento / critério	Three groups in the map are my judgment, so please check them.	yes	British spelling: judgement
+	Tooling	Mapping	A rule that links an item to its new value	mapeamento	I built a mapping from 79 lesson labels to 19 subject topics.	no	"The reply says ""map file""; mapping is the noun"
+	Tooling	Fold (into)	To combine several items into one group	agrupar / incorporar	The map folds the lesson labels into 19 subject topics.	yes	"Phrasal verb: ""fold into"""
+	Process	Conditional	Depending on a condition being true	condicional	A conditional command does not belong in a block that is run in one go.	yes	Russian: условный
+	Process	Undo	To cancel the effect of an action	desfazer	The cleanup and the new topics were undone.	no	"The reply uses the past participle ""undone"""
+	Process	In place	Already present and ready	no lugar / pronto	The tool, the map file and the original data are all in place.	yes	Russian: на месте
+	Process	Intended	Meant or planned to happen	pretendido	The restore command was intended only for the case where the numbers differ.	yes	Russian: предполагавшийся
+	Process	History (in Git)	The record of all earlier commits in a repository	histórico	The history shows what changed and why.	yes	Russian: история
+	Process	Several hundred	A number between about 200 and 900	algumas centenas	The counts are several hundred lines in both directions.	yes	Russian: несколько сотен
+	Process	Direction (of change)	Whether lines are added or removed	sentido	The counts are several hundred lines in both directions.	yes	Reused word, see earlier TSV row
+	Process	Stay	To remain in place without changing	permanecer	This time the changes stay.	yes	Russian: оставаться
+	Tooling	Generate	To produce something automatically from data	gerar	The page is generated from the database.	yes	Russian: генерировать
+	Tooling	Alphabetical order	The order of the letters from A to Z	ordem alfabética	The terms are sorted in alphabetical order inside each topic.	yes	Russian: алфавитный порядок
+	Tooling	Escape (characters)	To write special characters so that they show as text, not as code	escapar (caracteres)	Special characters are escaped, so a tag shows as text.	yes	Russian: экранировать
+	Tooling	Awkward (data)	Unusual and likely to cause problems	problemático / incômodo	I tested the command on awkward data with special characters. | The tool handles awkward data with special characters.	yes	Russian: неудобный
+	Process	Loading time	The time a page needs to appear in the browser	tempo de carregamento	The page is smaller than my estimate, which is good for loading time.	yes	Russian: время загрузки
+	Process	Block (verb)	To prevent something from going ahead	bloquear	That does not block the commit.	yes	Reused word, see earlier TSV row
+	Process	Verify (a result)	To check that something is true	verificar	I have not verified how the page looks.	yes	Russian: проверять
+	Process	Small commit	A commit that changes only a few things	commit pequeno	The fix is a small commit of its own.	yes	Good practice in Git
+	Tooling	Starter set	A first small group of items to begin with	conjunto inicial	The seed file is a starter set of 17 patterns.	yes	Russian: начальный набор
+	Tooling	Seed (data)	Initial data loaded into a database	dados iniciais	The seed file holds the initial patterns.	no	"The sentence says ""seed file""; the technical noun is seed"
+	Tooling	Frame (sentence)	A fixed structure with slots for new words	estrutura (de frase)	A sentence pattern is a reusable frame with slots for new words.	no	"The pages say ""reusable frame"""
+	Tooling	Priority	The level of importance that decides the order	prioridade	Seven patterns have priority 1, the essential ones.	yes	Russian: приоритет
+	Tooling	Compile (a list)	To collect items from several places into one list	compilar	I will compile the missing terms from my replies into one TSV file.	yes	Russian: составлять
+	Process	Stop at (a point)	To end at a certain point	parar em	The sheet stops at the entry Quoted (cell).	yes	Russian: останавливаться на
+	Process	Missing	Not present when it should be	ausente	Some terms are missing from the database.	yes	Russian: отсутствующий
+	Process	Overlap	To share part of the same content	sobrepor-se	Some of the missing terms overlap with entries already in the database.	yes	Russian: пересекаться
+	Process	Catch up	To reach the level of something that was ahead	atualizar-se / recuperar o atraso	The next reply catches up with all the missing terms.	no	"The sentence in the reply uses ""catches up"""
+	Process	Consecutive	Following one after another without a break	consecutivo	The missing terms come from ten consecutive replies.	yes	Russian: последовательный
+	Process	Backlog	Work that has built up and is waiting to be done	pendências acumuladas	The backlog of missing terms is imported in one file.	yes	Russian: накопившиеся задачи
+	Process	Plain text	Text without any formatting	texto simples	Save the block as a plain text file in UTF-8.	yes	Russian: простой текст
+	Process	Copy and paste	To copy text and insert it somewhere else	copiar e colar	Copy each new block and paste it into a text file.	no	"The reply says ""copy each new block""; the verb phrase is copy and paste"
+	Process	Keep up with	To stay at the same level as something that keeps changing	manter-se em dia com	The new routine keeps the database up to date with each reply.	no	"Phrasal verb; the reply says ""keeps ... up to date"""

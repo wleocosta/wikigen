@@ -7,7 +7,7 @@ description: Personal English vocabulary: terms with definitions, Portuguese tra
     <table class="infobox">
       <caption>Vocabulary</caption>
       <tr><th scope="row">Category</th><td>Language learning</td></tr>
-      <tr><th scope="row">Entries</th><td>587</td></tr>
+      <tr><th scope="row">Entries</th><td>631</td></tr>
       <tr><th scope="row">Topics</th><td>19</td></tr>
       <tr><th scope="row">Languages</th><td>English, with Portuguese translations</td></tr>
       <tr><th scope="row">Related</th><td><a href="index.html">Languages</a>, <a href="sentence-patterns.html">sentence patterns</a></td></tr>
@@ -34,14 +34,14 @@ description: Personal English vocabulary: terms with definitions, Portuguese tra
         <li><a href="#language-learning">Language learning</a> (11)</li>
         <li><a href="#localization">Localization</a> (74)</li>
         <li><a href="#music">Music</a> (37)</li>
-        <li><a href="#process">Process</a> (52)</li>
+        <li><a href="#process">Process</a> (77)</li>
         <li><a href="#programming">Programming</a> (36)</li>
         <li><a href="#project-management">Project management</a> (30)</li>
         <li><a href="#quality-assurance">Quality assurance</a> (42)</li>
         <li><a href="#robotics">Robotics</a> (10)</li>
         <li><a href="#sports">Sports</a> (12)</li>
         <li><a href="#technology">Technology</a> (5)</li>
-        <li><a href="#tooling">Tooling</a> (33)</li>
+        <li><a href="#tooling">Tooling</a> (52)</li>
         <li><a href="#web-development">Web development</a> (53)</li>
         <li><a href="#writing">Writing</a> (30)</li>
         <li><a href="#see-also">See also</a></li>
@@ -252,10 +252,10 @@ description: Personal English vocabulary: terms with definitions, Portuguese tra
           <tr><td><strong>Repository root</strong></td><td lang="pt">raiz do repositório</td><td>The top-level folder that contains the .git directory</td><td>The command git rev-parse --show-toplevel prints the repository root.</td></tr>
           <tr><td><strong>Reproducible</strong></td><td lang="pt">reproduzível</td><td>Able to be produced again with the same result</td><td>Every command produces the same result when you run it again, so the checks are reproducible.</td></tr>
           <tr><td><strong>Reset (verb)</strong></td><td lang="pt">reiniciar / redefinir</td><td>To return something to its initial state</td><td>Only the terminal session was reset.</td></tr>
-          <tr><td><strong>Reversible</strong></td><td lang="pt">Reversível</td><td>Able to be undone or turned back.</td><td>Each step before `git push` is reversible.</td></tr>
-          <tr><td><strong>Revert</strong></td><td lang="pt">reverter</td><td>To undo a commit by creating a new commit that reverses it</td><td>A single revert would undo both changes.</td></tr>
+          <tr><td><strong>Reversible</strong></td><td lang="pt">Reversível</td><td>Able to be undone or turned back.</td><td>Each step before `git push` is reversible.<br>Everything is reversible.</td></tr>
+          <tr><td><strong>Revert</strong></td><td lang="pt">reverter</td><td>To undo a commit by creating a new commit that reverses it</td><td>A single revert would undo both changes.<br>The command reverted the database to its committed version.</td></tr>
           <tr><td><strong>Rewrite history</strong></td><td lang="pt">reescrever o histórico</td><td>To change commits that already exist in a repository</td><td>There is no need to rewrite history.</td></tr>
-          <tr><td><strong>Rollback</strong></td><td lang="pt">Reversão (voltar ao estado anterior)</td><td>Returning a system to a previous, working state.</td><td>A rollback is simple: **before** the commit, `git restore en pt` brings the hand-written pages back.</td></tr>
+          <tr><td><strong>Rollback</strong></td><td lang="pt">Reversão (voltar ao estado anterior)</td><td>Returning a system to a previous, working state.</td><td>A rollback is simple: **before** the commit, `git restore en pt` brings the hand-written pages back.<br>You can restore the committed data with a rollback.</td></tr>
           <tr><td><strong>Root (directory)</strong></td><td lang="pt">diretório raiz</td><td>The top-level folder from which a program reads files</td><td>The checker reads the root build, not the published folder.</td></tr>
           <tr><td><strong>Routine (workflow)</strong></td><td lang="pt">rotina / fluxo de trabalho</td><td>A fixed, regular sequence of steps</td><td>From now on the routine is: build, check, publish.</td></tr>
           <tr><td><strong>Scope (of a commit)</strong></td><td lang="pt">escopo</td><td>The set of changes a commit covers</td><td>Adding by path keeps the scope of each commit small.</td></tr>
@@ -443,19 +443,26 @@ description: Personal English vocabulary: terms with definitions, Portuguese tra
     <h2 id="process">Process</h2>
     <div class="table-wrap">
       <table class="wikitable">
-        <caption>Process: 52 entries</caption>
+        <caption>Process: 77 entries</caption>
         <thead>
           <tr><th scope="col">Term</th><th scope="col">Portuguese</th><th scope="col">Definition</th><th scope="col">Example</th></tr>
         </thead>
         <tbody>
           <tr><td><strong>Alternate (adjective)</strong></td><td lang="pt">alternativo</td><td>Offered as another version of the same page</td><td>The English article gains its Russian alternate link.</td></tr>
+          <tr><td><strong>Backlog</strong></td><td lang="pt">pendências acumuladas</td><td>Work that has built up and is waiting to be done</td><td>The backlog of missing terms is imported in one file.</td></tr>
           <tr><td><strong>Balanced (tags)</strong></td><td lang="pt">balanceado</td><td>Having every opening tag matched by a closing tag</td><td>All tags are balanced in the file.</td></tr>
           <tr><td><strong>Block (commands)</strong></td><td lang="pt">bloco (de comandos)</td><td>A group of commands run together</td><td>Run this block in one go.</td></tr>
+          <tr><td><strong>Block (verb)</strong></td><td lang="pt">bloquear</td><td>To prevent something from going ahead</td><td>That does not block the commit.</td></tr>
+          <tr><td><strong>Catch up</strong></td><td lang="pt">atualizar-se / recuperar o atraso</td><td>To reach the level of something that was ahead</td><td>The next reply catches up with all the missing terms.</td></tr>
           <tr><td><strong>Category</strong></td><td lang="pt">categoria</td><td>A group of related pages</td><td>The technology category will have no red links left.</td></tr>
           <tr><td><strong>Changed (adjective)</strong></td><td lang="pt">alterado</td><td>Different from before, as a file in git status</td><td>The status lists three changed sources and their four generated pages.</td></tr>
+          <tr><td><strong>Clean slate</strong></td><td lang="pt">começar do zero</td><td>A fresh start with nothing carried over from before</td><td>We start from a clean slate.</td></tr>
           <tr><td><strong>Close (a gap)</strong></td><td lang="pt">fechar (uma lacuna)</td><td>To remove or fill something that was open or missing</td><td>Writing automation would close six red links in English and six in Russian.</td></tr>
           <tr><td><strong>Close (a loop)</strong></td><td lang="pt">fechar / concluir</td><td>To complete something that was open</td><td>Robotics would close the last red link in technology.</td></tr>
+          <tr><td><strong>Conditional</strong></td><td lang="pt">condicional</td><td>Depending on a condition being true</td><td>A conditional command does not belong in a block that is run in one go.</td></tr>
+          <tr><td><strong>Consecutive</strong></td><td lang="pt">consecutivo</td><td>Following one after another without a break</td><td>The missing terms come from ten consecutive replies.</td></tr>
           <tr><td><strong>Contradict</strong></td><td lang="pt">contradizer</td><td>To state something that conflicts with another statement</td><td>The two instructions contradict each other.</td></tr>
+          <tr><td><strong>Copy and paste</strong></td><td lang="pt">copiar e colar</td><td>To copy text and insert it somewhere else</td><td>Copy each new block and paste it into a text file.</td></tr>
           <tr><td><strong>Cost (a cycle)</strong></td><td lang="pt">custo</td><td>The effort or time needed to do something</td><td>Each new Russian article costs a full cycle.</td></tr>
           <tr><td><strong>Cover (a topic)</strong></td><td lang="pt">abranger / cobrir</td><td>To include or deal with a subject</td><td>The 13 pages already cover the high-frequency vocabulary.</td></tr>
           <tr><td><strong>Cover (topics)</strong></td><td lang="pt">abranger</td><td>To include or deal with a subject</td><td>The Russian site already covers the three topics you chose.</td></tr>
@@ -464,6 +471,7 @@ description: Personal English vocabulary: terms with definitions, Portuguese tra
           <tr><td><strong>Deliver</strong></td><td lang="pt">entregar</td><td>To bring something to the person who needs it</td><td>I delivered the file with the numbers already measured.</td></tr>
           <tr><td><strong>Diminishing returns</strong></td><td lang="pt">retornos decrescentes</td><td>A point at which each extra effort adds less benefit than the one before</td><td>Each new article gives diminishing returns for Russian study.</td></tr>
           <tr><td><strong>Direction</strong></td><td lang="pt">direção</td><td>A course or area of effort</td><td>Other directions include the Portuguese side.</td></tr>
+          <tr><td><strong>Direction (of change)</strong></td><td lang="pt">sentido</td><td>Whether lines are added or removed</td><td>The counts are several hundred lines in both directions.</td></tr>
           <tr><td><strong>Entry (in a list)</strong></td><td lang="pt">entrada / item</td><td>One item in a list, such as a line of git status</td><td>The status lists exactly nine expected entries.</td></tr>
           <tr><td><strong>Estimate (noun)</strong></td><td lang="pt">estimativa</td><td>An approximate calculation of a quantity</td><td>The article is slightly above my estimate of about 105 lines.</td></tr>
           <tr><td><strong>Exceed</strong></td><td lang="pt">exceder / ultrapassar</td><td>To go beyond a limit</td><td>The description must not exceed 160 characters.</td></tr>
@@ -473,33 +481,50 @@ description: Personal English vocabulary: terms with definitions, Portuguese tra
           <tr><td><strong>Gain</strong></td><td lang="pt">ganhar / passar a ter</td><td>To receive or obtain something additional</td><td>The English article gains its Russian alternate link.</td></tr>
           <tr><td><strong>Gain (a link)</strong></td><td lang="pt">ganhar (um link)</td><td>To receive an additional link</td><td>The English article gains its Russian alternate link.</td></tr>
           <tr><td><strong>Go (in one go)</strong></td><td lang="pt">de uma vez</td><td>At one time, without stopping</td><td>Run this block in one go.</td></tr>
+          <tr><td><strong>History (in Git)</strong></td><td lang="pt">histórico</td><td>The record of all earlier commits in a repository</td><td>The history shows what changed and why.</td></tr>
+          <tr><td><strong>In place</strong></td><td lang="pt">no lugar / pronto</td><td>Already present and ready</td><td>The tool, the map file and the original data are all in place.</td></tr>
           <tr><td><strong>Instance</strong></td><td lang="pt">ocorrência</td><td>A single occurrence of something</td><td>Robotics has three instances of red links in each language.</td></tr>
+          <tr><td><strong>Intended</strong></td><td lang="pt">pretendido</td><td>Meant or planned to happen</td><td>The restore command was intended only for the case where the numbers differ.</td></tr>
+          <tr><td><strong>Keep up with</strong></td><td lang="pt">manter-se em dia com</td><td>To stay at the same level as something that keeps changing</td><td>The new routine keeps the database up to date with each reply.</td></tr>
           <tr><td><strong>Left (remaining)</strong></td><td lang="pt">restante</td><td>Still available or not yet used</td><td>Robotics will be the only red link left in the technology hub.<br>The technology category will have no red links left.</td></tr>
           <tr><td><strong>Link normal</strong></td><td lang="pt">link normal (página existente)</td><td>A link to a page that exists, as opposed to a red link</td><td>All seven red links are now normal links.</td></tr>
           <tr><td><strong>Linked from</strong></td><td lang="pt">com links vindos de</td><td>Having links that point to it from other pages</td><td>Automation is linked from three pages in each language.</td></tr>
+          <tr><td><strong>Loading time</strong></td><td lang="pt">tempo de carregamento</td><td>The time a page needs to appear in the browser</td><td>The page is smaller than my estimate, which is good for loading time.</td></tr>
           <tr><td><strong>Margin</strong></td><td lang="pt">margem</td><td>The amount by which something stays below a limit</td><td>The margin under the limit of 160 is still 25 characters.</td></tr>
           <tr><td><strong>Match (noun)</strong></td><td lang="pt">correspondência</td><td>An exact agreement between two things</td><td>Every output is a match for the forecast.</td></tr>
+          <tr><td><strong>Missing</strong></td><td lang="pt">ausente</td><td>Not present when it should be</td><td>Some terms are missing from the database.</td></tr>
+          <tr><td><strong>Mix-up</strong></td><td lang="pt">confusão / troca</td><td>A mistake in which one thing is confused with another</td><td>The mix-up may have affected more than the data file.</td></tr>
           <tr><td><strong>Natural stopping point</strong></td><td lang="pt">ponto natural de parada</td><td>A moment in a project when it is sensible to pause</td><td>The Russian track has reached a natural stopping point.</td></tr>
           <tr><td><strong>Negligible</strong></td><td lang="pt">desprezível</td><td>So small that it can be ignored</td><td>The difference is negligible for the checker.</td></tr>
           <tr><td><strong>Not equal in value</strong></td><td lang="pt">não equivalente em valor</td><td>Of different importance or usefulness</td><td>The two red links are not equal in value.</td></tr>
           <tr><td><strong>Off by one</strong></td><td lang="pt">erro de um (off-by-one)</td><td>A small counting error of exactly one unit</td><td>My hand count of the description was off by one.</td></tr>
           <tr><td><strong>Open (area)</strong></td><td lang="pt">em aberto</td><td>Still needing attention</td><td>Three open areas remain, in order of value.</td></tr>
           <tr><td><strong>Optional</strong></td><td lang="pt">opcional</td><td>Not required; left to choice</td><td>One reminder, which is optional, concerns the seven links.</td></tr>
+          <tr><td><strong>Overlap</strong></td><td lang="pt">sobrepor-se</td><td>To share part of the same content</td><td>Some of the missing terms overlap with entries already in the database.</td></tr>
           <tr><td><strong>Phase</strong></td><td lang="pt">fase</td><td>A distinct stage in a sequence of steps</td><td>Each reply now contains one phase only.</td></tr>
+          <tr><td><strong>Plain text</strong></td><td lang="pt">texto simples</td><td>Text without any formatting</td><td>Save the block as a plain text file in UTF-8.</td></tr>
           <tr><td><strong>Predicted</strong></td><td lang="pt">previsto</td><td>Stated in advance as expected to happen</td><td>All results are as predicted.</td></tr>
           <tr><td><strong>Proceed</strong></td><td lang="pt">prosseguir</td><td>To continue with the next step</td><td>You can proceed with the commit phase.</td></tr>
           <tr><td><strong>Quick win</strong></td><td lang="pt">ganho rápido</td><td>A small effort that gives a clear benefit</td><td>A link checker would be a quick win.</td></tr>
           <tr><td><strong>Reasonable</strong></td><td lang="pt">razoável</td><td>Sensible and fair in the circumstances</td><td>Stopping here is also a reasonable choice.</td></tr>
+          <tr><td><strong>Redo</strong></td><td lang="pt">refazer</td><td>To do something again</td><td>Yes, you can redo the steps without any problem.</td></tr>
           <tr><td><strong>Reference (noun)</strong></td><td lang="pt">referência</td><td>A source that supports a statement in an article</td><td>The checker lists 122 external links for the references.</td></tr>
           <tr><td><strong>Rejected</strong></td><td lang="pt">rejeitado</td><td>Refused by the remote repository</td><td>If the push is rejected, send me the output.</td></tr>
           <tr><td><strong>Remain</strong></td><td lang="pt">restar / permanecer</td><td>To be left after the rest is done</td><td>Three technology sub-articles remain.</td></tr>
           <tr><td><strong>Room (for)</strong></td><td lang="pt">espaço / margem para</td><td>Space or opportunity for something else</td><td>Stopping here leaves room for other directions.</td></tr>
+          <tr><td><strong>Several hundred</strong></td><td lang="pt">algumas centenas</td><td>A number between about 200 and 900</td><td>The counts are several hundred lines in both directions.</td></tr>
           <tr><td><strong>Slightly</strong></td><td lang="pt">ligeiramente</td><td>To a small degree</td><td>The article is slightly above my estimate.</td></tr>
+          <tr><td><strong>Small commit</strong></td><td lang="pt">commit pequeno</td><td>A commit that changes only a few things</td><td>The fix is a small commit of its own.</td></tr>
           <tr><td><strong>Source (file)</strong></td><td lang="pt">arquivo-fonte</td><td>The original file from which pages are generated</td><td>The commit contains two changed sources and their generated pages.</td></tr>
           <tr><td><strong>Standing rule</strong></td><td lang="pt">regra permanente</td><td>A rule that applies to every future case</td><td>I saved this as a standing rule.</td></tr>
+          <tr><td><strong>Stay</strong></td><td lang="pt">permanecer</td><td>To remain in place without changing</td><td>This time the changes stay.</td></tr>
+          <tr><td><strong>Stop at (a point)</strong></td><td lang="pt">parar em</td><td>To end at a certain point</td><td>The sheet stops at the entry Quoted (cell).</td></tr>
           <tr><td><strong>Summary line</strong></td><td lang="pt">linha de resumo</td><td>A short result line printed by a command</td><td>Each commit prints a summary line with the number of files changed.</td></tr>
           <tr><td><strong>Underestimate</strong></td><td lang="pt">subestimar</td><td>To judge something to be smaller than it really is</td><td>I underestimated the length of the article again.</td></tr>
+          <tr><td><strong>Undo</strong></td><td lang="pt">desfazer</td><td>To cancel the effect of an action</td><td>The cleanup and the new topics were undone.</td></tr>
           <tr><td><strong>Variant</strong></td><td lang="pt">variante / variação</td><td>One of several forms of the same thing</td><td>The lead also gives the variant каллистеника.</td></tr>
+          <tr><td><strong>Verify (a result)</strong></td><td lang="pt">verificar</td><td>To check that something is true</td><td>I have not verified how the page looks.</td></tr>
+          <tr><td><strong>Version (of a file)</strong></td><td lang="pt">versão</td><td>One form of a file at a particular time</td><td>The two counts show whether the tool is the new version.</td></tr>
         </tbody>
       </table>
     </div>
@@ -529,7 +554,7 @@ description: Personal English vocabulary: terms with definitions, Portuguese tra
           <tr><td><strong>Inspect</strong></td><td lang="pt">Inspecionar</td><td>To examine something closely to find problems.</td><td>A `--root` option lets the checker inspect another folder, such as `build/`.</td></tr>
           <tr><td><strong>Interaction</strong></td><td lang="pt">interação</td><td>Communication or action between a user and a program</td><td>JavaScript adds logic and interaction in the browser.</td></tr>
           <tr><td><strong>Layer</strong></td><td lang="pt">camada</td><td>One level in a structure built in several levels</td><td>Every web page is built from three layers.</td></tr>
-          <tr><td><strong>Normalise</strong></td><td lang="pt">Normalizar</td><td>To convert something to a single standard form.</td><td>Python also normalises line endings when it reads the files, and `build.py` always writes LF, so Windows does not add `CRLF` to the output.</td></tr>
+          <tr><td><strong>Normalise</strong></td><td lang="pt">Normalizar</td><td>To convert something to a single standard form.</td><td>Python also normalises line endings when it reads the files, and `build.py` always writes LF, so Windows does not add `CRLF` to the output.<br>Topics will be normalised into a smaller set.</td></tr>
           <tr><td><strong>Obsolete</strong></td><td lang="pt">Obsoleto</td><td>No longer used or needed because something better exists.</td><td>The old comments in `layout.js` are obsolete, so I replace them.</td></tr>
           <tr><td><strong>Port</strong></td><td lang="pt">Portar (migrar código)</td><td>To adapt code so that it works in a new place or project.</td><td>Port the core of the old generator into this repository, in a separate folder.</td></tr>
           <tr><td><strong>Refuse</strong></td><td lang="pt">Recusar</td><td>To say no to an action instead of carrying it out.</td><td>If a `Refusing to publish` message appears, it lists the files that need a content file.</td></tr>
@@ -616,14 +641,14 @@ description: Personal English vocabulary: terms with definitions, Portuguese tra
           <tr><td><strong>Diagnose</strong></td><td lang="pt">Diagnosticar</td><td>To identify the cause of a problem from its signs.</td><td>The diagnostic commands below only read files, so they are safe.</td></tr>
           <tr><td><strong>Discrepancy</strong></td><td lang="pt">Discrepância</td><td>A difference between things that should be the same.</td><td>A discrepancy shows exactly which line differs, and for any difference I will need the output.<br>A discrepancy between the two counts suggested that the checker was skipping some pages.</td></tr>
           <tr><td><strong>Enforce</strong></td><td lang="pt">Fazer cumprir (impor)</td><td>To make sure a rule is followed.</td><td>The checker enforces both sides of each translation pair.</td></tr>
-          <tr><td><strong>Harmless</strong></td><td lang="pt">Inofensivo</td><td>Unable to cause damage or harm.</td><td>The LF/CRLF warnings are harmless.</td></tr>
+          <tr><td><strong>Harmless</strong></td><td lang="pt">Inofensivo</td><td>Unable to cause damage or harm.</td><td>The LF/CRLF warnings are harmless.<br>They are harmless in the database.</td></tr>
           <tr><td><strong>Hypothesis</strong></td><td lang="pt">Hipótese</td><td>A proposed explanation that still needs to be tested.</td><td>It is a hypothesis until I see the script.</td></tr>
           <tr><td><strong>Intact</strong></td><td lang="pt">Intacto</td><td>Complete and undamaged.</td><td>This unstages the files; your edits stay intact in the working tree.<br>The numbers are the same, so the copy is intact.</td></tr>
-          <tr><td><strong>Leftover</strong></td><td lang="pt">Resquício (o que sobrou)</td><td>Remaining after the rest has been removed or used.</td><td>Check for leftover references before deleting anything.</td></tr>
+          <tr><td><strong>Leftover</strong></td><td lang="pt">Resquício (o que sobrou)</td><td>Remaining after the rest has been removed or used.</td><td>Check for leftover references before deleting anything.<br>The tool reports unbalanced markup that would remain as a leftover.</td></tr>
           <tr><td><strong>Metadata</strong></td><td lang="pt">Metadados</td><td>Data that describes other data</td><td>Metadata, such as the title and the description, is information about a page rather than part of its content.</td></tr>
           <tr><td><strong>Miscount</strong></td><td lang="pt">Erro de contagem</td><td>A mistake in counting.</td><td>My best explanation of the extra file is a miscount on my side, not a problem in your files.</td></tr>
           <tr><td><strong>Official</strong></td><td lang="pt">Oficial</td><td>Authorised or approved by a recognised authority.</td><td>I will use official Brazilian terms rather than literal translations.</td></tr>
-          <tr><td><strong>Outdated</strong></td><td lang="pt">Desatualizado</td><td>No longer current, accurate or useful.</td><td>The note on the Main Page would become outdated, because all seven hubs now exist in Portuguese.</td></tr>
+          <tr><td><strong>Outdated</strong></td><td lang="pt">Desatualizado</td><td>No longer current, accurate or useful.</td><td>The note on the Main Page would become outdated, because all seven hubs now exist in Portuguese.<br>If either count is 0, the tool is outdated.</td></tr>
           <tr><td><strong>Oversight</strong></td><td lang="pt">Descuido (falha por omissão)</td><td>An unintentional failure to notice or do something.</td><td>You are right that this was an oversight on my side.</td></tr>
           <tr><td><strong>Partial</strong></td><td lang="pt">Parcial</td><td>Covering only a part, not the whole.</td><td>A partial commit would leave the checker failing, so the missing four files must be included.</td></tr>
           <tr><td><strong>Predominantly</strong></td><td lang="pt">Predominantemente</td><td>Mainly; for the most part</td><td>—</td></tr>
@@ -714,15 +739,18 @@ description: Personal English vocabulary: terms with definitions, Portuguese tra
     <h2 id="tooling">Tooling</h2>
     <div class="table-wrap">
       <table class="wikitable">
-        <caption>Tooling: 33 entries</caption>
+        <caption>Tooling: 52 entries</caption>
         <thead>
           <tr><th scope="col">Term</th><th scope="col">Portuguese</th><th scope="col">Definition</th><th scope="col">Example</th></tr>
         </thead>
         <tbody>
+          <tr><td><strong>Alphabetical order</strong></td><td lang="pt">ordem alfabética</td><td>The order of the letters from A to Z</td><td>The terms are sorted in alphabetical order inside each topic.</td></tr>
           <tr><td><strong>Append</strong></td><td lang="pt">Anexar / acrescentar ao final</td><td>To add something at the end of existing content</td><td>The three new terms are appended to the file as step 33, and this reply&#x27;s terms as step 34.<br>Append the ending to the Russian technology hub.</td></tr>
           <tr><td><strong>Argument (programming)</strong></td><td lang="pt">Argumento / parâmetro</td><td>A value given to a command or function</td><td>p.add_argument(&quot;path&quot;, help=&quot;section/slug, e.g. music/slap-technique&quot;)</td></tr>
           <tr><td><strong>Automate</strong></td><td lang="pt">Automatizar</td><td>To make a process run without manual work</td><td>Italian worked with three manual steps, so we now automate them.</td></tr>
+          <tr><td><strong>Awkward (data)</strong></td><td lang="pt">problemático / incômodo</td><td>Unusual and likely to cause problems</td><td>I tested the command on awkward data with special characters.<br>The tool handles awkward data with special characters.</td></tr>
           <tr><td><strong>Command line</strong></td><td lang="pt">Linha de comando</td><td>A text interface where commands are typed</td><td>We define a small vocabulary that works both as command-line commands and as short instructions you give me in this chat:</td></tr>
+          <tr><td><strong>Compile (a list)</strong></td><td lang="pt">compilar</td><td>To collect items from several places into one list</td><td>I will compile the missing terms from my replies into one TSV file.</td></tr>
           <tr><td><strong>Cumulative</strong></td><td lang="pt">Cumulativo / acumulado</td><td>Growing by the addition of successive items</td><td>The file is cumulative: it keeps every earlier row and adds the new ones at the end.<br>The glossary is cumulative, growing with each language.</td></tr>
           <tr><td><strong>Database</strong></td><td lang="pt">banco de dados</td><td>An organised collection of data stored so that it can be searched and updated</td><td>The database lives on your computer.</td></tr>
           <tr><td><strong>Deduplicate</strong></td><td lang="pt">Remover duplicatas</td><td>To remove repeated entries from a list</td><td>The file stays deduplicated: a term listed twice keeps only its first row.</td></tr>
@@ -730,26 +758,42 @@ description: Personal English vocabulary: terms with definitions, Portuguese tra
           <tr><td><strong>Detect</strong></td><td lang="pt">Detectar</td><td>To discover or identify something automatically</td><td>—</td></tr>
           <tr><td><strong>Dry run</strong></td><td lang="pt">execução de teste (dry run)</td><td>A test run that shows the result without saving anything</td><td>A dry run shows the result without saving.</td></tr>
           <tr><td><strong>Duplicate</strong></td><td lang="pt">duplicata</td><td>A second copy of something that already exists</td><td>Your files repeat terms across lessons, so duplicates are common.</td></tr>
+          <tr><td><strong>Embedded</strong></td><td lang="pt">incorporado</td><td>Placed inside something else</td><td>The notes have table markup embedded in the text.</td></tr>
+          <tr><td><strong>Escape (characters)</strong></td><td lang="pt">escapar (caracteres)</td><td>To write special characters so that they show as text, not as code</td><td>Special characters are escaped, so a tag shows as text.</td></tr>
           <tr><td><strong>Excerpt</strong></td><td lang="pt">Trecho / excerto</td><td>A short passage taken from a longer text</td><td>The sentence column is an excerpt of my own text, not a paraphrase.</td></tr>
           <tr><td><strong>Export</strong></td><td lang="pt">Exportar</td><td>To save data in a file format that other programs can open</td><td>If you ever want to export it as .xlsx for formatting or filters, I can do that too.</td></tr>
           <tr><td><strong>Export (verb)</strong></td><td lang="pt">exportar</td><td>To save data from a program into a file</td><td>In Google Sheets, you export the current tab as a TSV file.</td></tr>
+          <tr><td><strong>Fold (into)</strong></td><td lang="pt">agrupar / incorporar</td><td>To combine several items into one group</td><td>The map folds the lesson labels into 19 subject topics.</td></tr>
+          <tr><td><strong>Fragment</strong></td><td lang="pt">fragmento</td><td>A small piece of something larger</td><td>Some notes contain HTML fragments that were copied into the sheet.</td></tr>
+          <tr><td><strong>Frame (sentence)</strong></td><td lang="pt">estrutura (de frase)</td><td>A fixed structure with slots for new words</td><td>A sentence pattern is a reusable frame with slots for new words.</td></tr>
+          <tr><td><strong>Generate</strong></td><td lang="pt">gerar</td><td>To produce something automatically from data</td><td>The page is generated from the database.</td></tr>
           <tr><td><strong>Header row</strong></td><td lang="pt">Linha de cabeçalho</td><td>The first row of a table, naming each column</td><td>The header row and the earlier 151 rows are unchanged.<br>If your sheet has a header row, that is fine.</td></tr>
           <tr><td><strong>Import</strong></td><td lang="pt">importar</td><td>To bring data from a file into a program</td><td>The import reads your TSV file into the database.</td></tr>
+          <tr><td><strong>Judgment</strong></td><td lang="pt">julgamento / critério</td><td>An opinion formed after weighing the facts</td><td>Three groups in the map are my judgment, so please check them.</td></tr>
           <tr><td><strong>Layout</strong></td><td lang="pt">Layout / disposição</td><td>The way elements are arranged or formatted</td><td>From now on, each reply ends with the vocabulary in the same layout as the TSV columns.</td></tr>
+          <tr><td><strong>Legitimate</strong></td><td lang="pt">legítimo</td><td>Valid and correct, not an error</td><td>It leaves legitimate tags alone.</td></tr>
+          <tr><td><strong>Mapping</strong></td><td lang="pt">mapeamento</td><td>A rule that links an item to its new value</td><td>I built a mapping from 79 lesson labels to 19 subject topics.</td></tr>
           <tr><td><strong>Merge</strong></td><td lang="pt">mesclar</td><td>To combine two entries into one</td><td>A repeated term is merged, not rejected.</td></tr>
           <tr><td><strong>Migrate</strong></td><td lang="pt">Migrar</td><td>To move something from one system to another</td><td>—</td></tr>
           <tr><td><strong>Pager</strong></td><td lang="pt">Paginador</td><td>A program that displays long text one screen at a time.</td><td>The `:` at the end of your `git log` output is the pager (`less`) waiting for a key.<br>The command git --no-pager log rules out a pager as the cause.</td></tr>
           <tr><td><strong>Pattern (sentence)</strong></td><td lang="pt">padrão de frase</td><td>A reusable frame for building sentences</td><td>The most useful sentence patterns give 80% of the use.</td></tr>
           <tr><td><strong>Pipe</strong></td><td lang="pt">Encadear (via pipe)</td><td>To send the output of one command as input to another.</td><td>Show only the summary: `python tools/check_site.py<br>head -n 3`.</td></tr>
           <tr><td><strong>Preserve</strong></td><td lang="pt">Preservar</td><td>To keep something unchanged</td><td>All earlier rows are preserved exactly as they were.</td></tr>
+          <tr><td><strong>Preview</strong></td><td lang="pt">prévia</td><td>A view of the result before it is saved</td><td>The default is a preview, and --apply saves the change.</td></tr>
+          <tr><td><strong>Priority</strong></td><td lang="pt">prioridade</td><td>The level of importance that decides the order</td><td>Seven patterns have priority 1, the essential ones.</td></tr>
           <tr><td><strong>Quoted (cell)</strong></td><td lang="pt">entre aspas</td><td>Wrapped in quotation marks in an exported file</td><td>Google Sheets wraps cells in double quotes when they contain quotation marks.</td></tr>
           <tr><td><strong>Redundant</strong></td><td lang="pt">Redundante</td><td>Not needed because it repeats something already present</td><td>I kept those rows and added a note, so nothing is lost; you can delete them if you consider them redundant.<br>The original sentence was redundant, because the Fingerstyle item already covers the fingers.</td></tr>
           <tr><td><strong>Register (verb)</strong></td><td lang="pt">Registrar / cadastrar</td><td>To record something officially in a system</td><td>add-lang registers a language: it creates i18n/&lt;code&gt;.json, creates the content/&lt;code&gt;/ folder, and adds the code to site.json.</td></tr>
           <tr><td><strong>Round trip</strong></td><td lang="pt">ida e volta</td><td>Exporting data and importing it back to check that nothing is lost</td><td>A round trip gives an identical file.</td></tr>
           <tr><td><strong>Scaffold</strong></td><td lang="pt">Gerar a estrutura inicial</td><td>To generate a basic starting structure automatically</td><td>—</td></tr>
           <tr><td><strong>Schema</strong></td><td lang="pt">esquema</td><td>The structure that defines the tables and columns of a database</td><td>The data model is a sketch of the schema.</td></tr>
+          <tr><td><strong>Seed (data)</strong></td><td lang="pt">dados iniciais</td><td>Initial data loaded into a database</td><td>The seed file holds the initial patterns.</td></tr>
+          <tr><td><strong>Starter set</strong></td><td lang="pt">conjunto inicial</td><td>A first small group of items to begin with</td><td>The seed file is a starter set of 17 patterns.</td></tr>
+          <tr><td><strong>Strip (remove)</strong></td><td lang="pt">remover</td><td>To take away an outer layer or unwanted part</td><td>The cleanup command will strip these fragments.</td></tr>
           <tr><td><strong>Tab (sheet)</strong></td><td lang="pt">aba (planilha)</td><td>One page inside a spreadsheet file</td><td>Only the current tab is downloaded.</td></tr>
           <tr><td><strong>Truncate</strong></td><td lang="pt">Truncar</td><td>To shorten something by cutting off part of it.</td><td>Limit the output instead of printing everything.<br>The head command truncated the output at line 60.</td></tr>
+          <tr><td><strong>Truncated</strong></td><td lang="pt">truncado</td><td>Cut short so that the end is missing</td><td>It reports truncated table markup but does not remove it.</td></tr>
+          <tr><td><strong>Untouched</strong></td><td lang="pt">intocado</td><td>Not changed in any way</td><td>The term column is never touched.</td></tr>
           <tr><td><strong>Validate</strong></td><td lang="pt">Validar</td><td>To check that input is correct before using it</td><td>The pilot validated the whole pipeline: the folder mirror, the `hreflang` pair, the switcher and the checker.</td></tr>
           <tr><td><strong>Workflow</strong></td><td lang="pt">Fluxo de trabalho</td><td>The sequence of steps in a piece of work</td><td>80/20 note: the point is not the code, it is the workflow: one command makes a new page, one command rebuilds everything.</td></tr>
         </tbody>
@@ -801,7 +845,7 @@ description: Personal English vocabulary: terms with definitions, Portuguese tra
           <tr><td><strong>Redirect</strong></td><td lang="pt">Redirecionar / redirecionamento</td><td>To send a visitor automatically from one address to another</td><td>Later we will add a root redirect so that the bare repository address opens the English Main Page.<br>A redirect sends the browser from one address to another automatically.</td></tr>
           <tr><td><strong>Redundancy</strong></td><td lang="pt">Redundância</td><td>Unnecessary repetition of the same thing</td><td>—</td></tr>
           <tr><td><strong>Refactor</strong></td><td lang="pt">Refatorar</td><td>To restructure existing code without changing its behaviour</td><td>To refactor is to restructure existing code without changing what it does.</td></tr>
-          <tr><td><strong>Regenerate</strong></td><td lang="pt">Regenerar</td><td>To produce something again from its source</td><td>build deletes the whole dist/ folder and regenerates it from content/, templates/ and i18n/ every time.</td></tr>
+          <tr><td><strong>Regenerate</strong></td><td lang="pt">Regenerar</td><td>To produce something again from its source</td><td>build deletes the whole dist/ folder and regenerates it from content/, templates/ and i18n/ every time.<br>The Vocabulary page is regenerated from the database.</td></tr>
           <tr><td><strong>Render</strong></td><td lang="pt">Renderizar (exibir)</td><td>To generate and display content on screen.</td><td>The switcher renders only on pages that declare at least two languages.</td></tr>
           <tr><td><strong>Resolve</strong></td><td lang="pt">Resolver (apontar para)</td><td>To turn a relative address into the final destination it points to.</td><td>`../en/music/index.html` resolves to the English hub.</td></tr>
           <tr><td><strong>Responsive</strong></td><td lang="pt">Responsivo</td><td>Adapting to different screen sizes</td><td>—</td></tr>
