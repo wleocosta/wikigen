@@ -16,12 +16,17 @@ Run it from the project root:
     python tools/vocab.py export FILE.tsv [--table vocabulary|pattern] [--header]
     python tools/vocab.py pattern-add [--lang en]
     python tools/vocab.py pattern-list [--priority 1|2|3] [--limit 30]
+    python tools/vocab.py pattern-import FILE.tsv [--dry-run] [--lang en]
+    python tools/vocab.py pattern-delete ID
+    python tools/vocab.py delete TERM [--lang en]
 
 The database is one SQLite file, data/wiki.db, created automatically.
 Only the Python standard library is used.
 
 TSV columns (vocabulary, the same order as your lesson files):
     step, topic, term, definition_en, translation_pt, sentence_used, match, note
+TSV columns (sentence patterns):
+    pattern, function, example, translation_pt, priority, topic, note
 """
 import argparse
 import csv
@@ -127,7 +132,7 @@ def show_vocab(row):
 
 def show_pattern(row):
     label = " (%s)" % row["function"] if row["function"] else ""
-    print("[P%d] %s%s" % (row["priority"], row["pattern"], label))
+    print("[P%d] #%d  %s%s" % (row["priority"], row["id"], row["pattern"], label))
     if row["example"]:
         print("    e.g. %s" % row["example"])
     if row["translation_pt"]:
@@ -447,6 +452,162 @@ def cmd_retopic(args):
     return 0
 
 
+PRIORITY_GROUPS = [
+    (1, "essential", "Essential patterns"),
+    (2, "useful", "Useful patterns"),
+    (3, "optional", "Optional patterns"),
+]
+
+
+def build_patterns_page(pattern_rows):
+    """Return the lines of the Sentence patterns article."""
+    esc = html.escape
+    by_priority = {}
+    for row in pattern_rows:
+        by_priority.setdefault(row["priority"], []).append(row)
+    groups = [(p, anchor, name) for p, anchor, name in PRIORITY_GROUPS if p in by_priority]
+    description = ("Reusable English sentence patterns from encyclopedic writing, with "
+                   "examples and Portuguese translations, ordered by priority.")
+    out = ["title: Sentence patterns", "description: %s" % description, "---",
+           "    <h1>Sentence patterns</h1>",
+           '    <p class="hatnote">This article is part of the <a href="index.html">Languages</a> category.</p>',
+           "",
+           '    <table class="infobox">',
+           "      <caption>Sentence patterns</caption>",
+           '      <tr><th scope="row">Category</th><td>Language learning</td></tr>',
+           '      <tr><th scope="row">Patterns</th><td>%d</td></tr>' % len(pattern_rows),
+           '      <tr><th scope="row">Essential patterns</th><td>%d</td></tr>' % len(by_priority.get(1, [])),
+           '      <tr><th scope="row">Languages</th><td>English, with Portuguese translations</td></tr>',
+           '      <tr><th scope="row">Related</th><td><a href="index.html">Languages</a>, '
+           '<a href="vocabulary.html">vocabulary</a></td></tr>',
+           "    </table>",
+           "",
+           "    <p>",
+           "      A <strong>sentence pattern</strong> is a reusable frame in which fixed words",
+           "      give the structure and letters such as X, Y and Z mark the places where new",
+           "      words are inserted. Learning the frames of encyclopedic writing allows many",
+           "      correct sentences to be built from a few models. The patterns are ordered by",
+           "      priority: the essential ones are the few that appear most often and give the",
+           "      greatest return for the time spent.",
+           "    </p>",
+           "",
+           '    <nav class="toc" aria-labelledby="toc-title">',
+           '      <h2 id="toc-title">Contents</h2>',
+           "      <ol>"]
+    for _, anchor, name in groups:
+        out.append('        <li><a href="#%s">%s</a> (%d)</li>' % (
+            anchor, name, len(by_priority[_])))
+    out += ['        <li><a href="#see-also">See also</a></li>', "      </ol>", "    </nav>"]
+    for priority, anchor, name in groups:
+        out += ["", '    <h2 id="%s">%s</h2>' % (anchor, name),
+                '    <div class="table-wrap">', '      <table class="wikitable">',
+                "        <caption>%s: %d entries</caption>" % (name, len(by_priority[priority])),
+                "        <thead>",
+                '          <tr><th scope="col">Pattern</th><th scope="col">Function</th>'
+                '<th scope="col">Example</th><th scope="col">Portuguese</th></tr>',
+                "        </thead>", "        <tbody>"]
+        for row in by_priority[priority]:
+            out.append(
+                '          <tr><td><strong>%s</strong></td><td>%s</td><td>%s</td><td lang="pt">%s</td></tr>'
+                % (esc(row["pattern"]), esc(row["function"] or "\u2014"),
+                   esc(row["example"] or "\u2014"), esc(row["translation_pt"] or "\u2014")))
+        out += ["        </tbody>", "      </table>", "    </div>"]
+    out += ["", '    <h2 id="see-also">See also</h2>', "    <ul>",
+            '      <li><a href="index.html">Languages</a>: category overview.</li>',
+            '      <li><a href="vocabulary.html">Vocabulary</a>: the terms studied, with definitions and examples.</li>',
+            "    </ul>"]
+    return out
+
+
+def cmd_pattern_import(args):
+    conn = connect(args.db)
+    read = inserted = merged = unchanged = 0
+    problems = []
+    for number, row in read_rows(args.file):
+        row = [clean(cell) for cell in row]
+        if len(row) > 4 and row[0].lower() == "pattern" and row[4].lower() == "priority":
+            continue
+        read += 1
+        if len(row) > 7:
+            row = row[:6] + [" ".join(row[6:])]
+        row += [""] * (7 - len(row))
+        pattern, function, example, translation, priority_text, topic, note = row
+        if not pattern:
+            problems.append("line %d: no pattern, skipped" % number)
+            continue
+        if priority_text not in ("", "1", "2", "3"):
+            problems.append("line %d: priority must be 1, 2 or 3 (found '%s'), skipped" % (number, priority_text))
+            continue
+        priority = int(priority_text or "2")
+        existing = conn.execute("SELECT * FROM pattern WHERE lang = ? AND pattern = ?",
+                                (args.lang, pattern)).fetchone()
+        if existing is None:
+            conn.execute(
+                "INSERT INTO pattern (lang, pattern, function, example, translation_pt,"
+                " priority, topic, note) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+                (args.lang, pattern, function, example, translation, priority, topic, note))
+            inserted += 1
+            continue
+        changes = {}
+        for name, value in (("function", function), ("example", example),
+                            ("translation_pt", translation), ("topic", topic), ("note", note)):
+            if value and not existing[name]:
+                changes[name] = value
+        if changes:
+            assignments = ", ".join("%s = ?" % name for name in changes)
+            conn.execute("UPDATE pattern SET %s WHERE id = ?" % assignments,
+                         list(changes.values()) + [existing["id"]])
+            merged += 1
+        else:
+            unchanged += 1
+    if args.dry_run:
+        conn.rollback()
+    else:
+        conn.commit()
+    total = conn.execute("SELECT COUNT(*) FROM pattern").fetchone()[0]
+    conn.close()
+    print("%sRows read: %d" % ("DRY RUN (nothing saved). " if args.dry_run else "", read))
+    print("  new patterns:                   %d" % inserted)
+    print("  existing patterns updated:      %d" % merged)
+    print("  repeated rows, nothing to add:  %d" % unchanged)
+    print("  problems:                       %d" % len(problems))
+    for message in problems[:10]:
+        print("    " + message)
+    print("Patterns in the database%s: %d" % (" after the import" if not args.dry_run else "", total))
+    return 0
+
+
+def cmd_pattern_delete(args):
+    conn = connect(args.db)
+    row = conn.execute("SELECT * FROM pattern WHERE id = ?", (args.id,)).fetchone()
+    if row is None:
+        print("No pattern with id %d. Use pattern-list to see the ids." % args.id)
+        conn.close()
+        return 1
+    show_pattern(row)
+    conn.execute("DELETE FROM pattern WHERE id = ?", (args.id,))
+    conn.commit()
+    conn.close()
+    print("Deleted pattern #%d." % args.id)
+    return 0
+
+
+def cmd_delete(args):
+    conn = connect(args.db)
+    row = conn.execute("SELECT * FROM vocabulary WHERE lang = ? AND term = ?",
+                       (args.lang, clean(args.term))).fetchone()
+    if row is None:
+        print("No entry for the term '%s'." % args.term)
+        conn.close()
+        return 1
+    show_vocab(row)
+    conn.execute("DELETE FROM vocabulary WHERE id = ?", (row["id"],))
+    conn.commit()
+    conn.close()
+    print("Deleted: %s" % row["term"])
+    return 0
+
+
 def slugify(text):
     slug = re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")
     return slug or "topic"
@@ -458,6 +619,9 @@ def cmd_pages(args):
     rows = conn.execute(
         "SELECT * FROM vocabulary WHERE lang = ?"
         " ORDER BY topic COLLATE NOCASE, term COLLATE NOCASE", (args.lang,)).fetchall()
+    pattern_rows = conn.execute(
+        "SELECT * FROM pattern WHERE lang = ? ORDER BY priority, pattern COLLATE NOCASE",
+        (args.lang,)).fetchall()
     conn.close()
     if not rows:
         print("The database has no vocabulary entries for language '%s'." % args.lang)
@@ -488,7 +652,10 @@ def cmd_pages(args):
     out.append('      <tr><th scope="row">Entries</th><td>%d</td></tr>' % len(rows))
     out.append('      <tr><th scope="row">Topics</th><td>%d</td></tr>' % len(names))
     out.append('      <tr><th scope="row">Languages</th><td>English, with Portuguese translations</td></tr>')
-    out.append('      <tr><th scope="row">Related</th><td><a href="index.html">Languages</a></td></tr>')
+    related = '<a href="index.html">Languages</a>'
+    if pattern_rows:
+        related += ', <a href="sentence-patterns.html">sentence patterns</a>'
+    out.append('      <tr><th scope="row">Related</th><td>%s</td></tr>' % related)
     out.append("    </table>")
     out.append("")
     out.append("    <p>")
@@ -535,6 +702,8 @@ def cmd_pages(args):
     out.append('    <h2 id="see-also">See also</h2>')
     out.append("    <ul>")
     out.append('      <li><a href="index.html">Languages</a>: category overview.</li>')
+    if pattern_rows:
+        out.append('      <li><a href="sentence-patterns.html">Sentence patterns</a>: reusable frames for building sentences.</li>')
     out.append("    </ul>")
 
     target = Path(args.out) if args.out else ROOT / "content" / args.lang / "languages" / "vocabulary.html"
@@ -543,6 +712,14 @@ def cmd_pages(args):
         handle.write("\n".join(out) + "\n")
     size = target.stat().st_size
     print("Wrote %d entries in %d topics to %s (%d KB)" % (len(rows), len(names), target, (size + 1023) // 1024))
+    if pattern_rows:
+        pattern_target = target.parent / "sentence-patterns.html"
+        with open(pattern_target, "w", encoding="utf-8", newline="") as handle:
+            handle.write("\n".join(build_patterns_page(pattern_rows)) + "\n")
+        print("Wrote %d sentence patterns to %s (%d KB)" % (
+            len(pattern_rows), pattern_target, (pattern_target.stat().st_size + 1023) // 1024))
+    else:
+        print("No sentence patterns yet, so no sentence-patterns page was written.")
     return 0
 
 
@@ -667,6 +844,21 @@ def build_parser():
     p.add_argument("--examples", type=int, default=2, help="example sentences per entry")
     p.set_defaults(func=cmd_pages)
 
+    p = sub.add_parser("pattern-import", help="import sentence patterns from a TSV file")
+    p.add_argument("file")
+    p.add_argument("--lang", default="en")
+    p.add_argument("--dry-run", action="store_true", help="show the result without saving")
+    p.set_defaults(func=cmd_pattern_import)
+
+    p = sub.add_parser("pattern-delete", help="delete one sentence pattern by its id")
+    p.add_argument("id", type=int)
+    p.set_defaults(func=cmd_pattern_delete)
+
+    p = sub.add_parser("delete", help="delete one vocabulary entry by its term")
+    p.add_argument("term")
+    p.add_argument("--lang", default="en")
+    p.set_defaults(func=cmd_delete)
+
     p = sub.add_parser("export", help="write a TSV file")
     p.add_argument("file")
     p.add_argument("--table", choices=["vocabulary", "pattern"], default="vocabulary")
@@ -698,6 +890,10 @@ def main(argv=None):
         return 1
     except FileNotFoundError as error:
         print("File not found: %s" % error.filename)
+        return 1
+    except UnicodeDecodeError:
+        print("The file is not saved as UTF-8. Open it in your editor and save it again "
+              "with the encoding UTF-8 (in Notepad: Save As, Encoding: UTF-8).")
         return 1
     except BrokenPipeError:
         # The reader (for example "| head -n 3") closed the pipe early: normal.

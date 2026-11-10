@@ -1,0 +1,18 @@
+pattern	function	example	translation_pt	priority	topic	note
+X is the use of Y to do Z	definition	Automation is the use of technology to perform tasks with minimal human intervention.	X é o uso de Y para fazer Z	1	Automation	Opening sentence of the automation article
+X is a Y that Z	definition	A chess tactic is a short sequence of forcing moves that creates a concrete advantage, such as winning material or delivering checkmate.	X é um Y que Z	1	Chess	Opening sentence of the tactics article
+X is the study of how Y	definition	Finance is the study of how individuals and organisations manage money, assets and risk over time.	X é o estudo de como Y	1	Finance	Opening sentence of the finance hub
+In this encyclopedia, the subject refers to X, which Y	scope	In this encyclopedia, the subject refers to home and industrial automation, which combine three fields covered in this category.	Nesta enciclopédia, o assunto se refere a X, que Y	1	Writing	Scope sentence used in the articles
+X is called Y	naming	Finding and fixing errors is called debugging.	X é chamado de Y	1	Programming	Names a term in passing
+When X, Y	condition	When the result of an action is measured again and used to correct the next action, the system uses feedback.	Quando X, Y	1	Automation	Explains how a concept works
+Learning first X gives the greatest return for the time spent	advice	Learning first the few concepts that appear in almost every program gives the greatest return for the time spent.	Aprender primeiro X dá o maior retorno pelo tempo investido	1	Programming	The 80/20 idea in one sentence
+X is divided into Y according to Z	classification	Investments are commonly divided into two broad groups according to how their returns are determined.	X é dividido em Y de acordo com Z	2	Finance	Classifies a topic
+X contrasts with Y, which Z	contrast	It contrasts with tactics, which are short forcing sequences, and it takes over once the opening has developed the pieces.	X contrasta com Y, que Z	2	Chess	Opening paragraph of the strategy article
+X applies the principle of Y	explanation	Keeping the three layers separate applies the principle of separation of concerns.	X aplica o princípio de Y	2	Programming	Links a practice to a principle
+X allows Y to Z	function	Internationalisation allows a website to present its content in several languages.	X permite que Y faça Z	2	Localization	Explains what something makes possible
+X is the simplest example: ...	example	A thermostat is the simplest example: a sensor measures the room temperature, the controller compares it with the target, and the actuator switches the heater on or off.	X é o exemplo mais simples: ...	2	Automation	Introduces an example
+X can cause Y, so Z	caution	Motors, gears and wheels can pinch fingers or cause injury, so hands and clothing are kept clear while the robot is powered.	X pode causar Y, portanto Z	2	Robotics	Safety sentences
+X reduces the risk of Y	benefit	A short warm-up reduces the risk of injury.	X reduz o risco de Y	2	Sports	Explains a benefit
+X is generally more useful than Y	comparison	A small, well-understood opening repertoire is generally more useful than a large, memorised one.	X geralmente é mais útil do que Y	2	Chess	Compares two approaches
+X teaches more than Y, so a practical sequence is:	advice	A small working robot teaches more than a complex unfinished one, so a practical sequence is:	X ensina mais do que Y, então uma sequência prática é:	2	Robotics	Introduces a list of steps
+This article is educational and is not a substitute for X	disclaimer	This article is educational and is not a substitute for professional training.	Este artigo é educativo e não substitui X	2	Writing	Safety note used in several articles
